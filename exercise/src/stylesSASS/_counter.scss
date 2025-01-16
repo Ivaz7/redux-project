@@ -1,0 +1,22 @@
+.counter {
+  background-color: lightgray;
+
+  button {
+    all: unset;
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 0.2rem 0.3rem;
+    border-radius: 0.3rem;
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0 0.3rem gray;
+    }
+  }
+
+  input {
+    width: 2rem;
+  }
+}
