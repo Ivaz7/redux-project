@@ -5,16 +5,20 @@ export const useGetWeather = (lat, lon) => {
 
   if (data) {
     return [
-      ["country", data?.sys?.country],
-      ["city", data?.name],
-      ["weather", data?.weather?.[0]?.main],
-      ["description", data?.weather?.[0]?.description], 
+      ["Country", data?.sys?.country],
+      ["City", data?.name],
+      ["Weather", data?.weather?.[0]?.main],
+      ["Description", data?.weather?.[0]?.description], 
       ["icon", data?.weather?.[0]?.icon],
       ["temp", [
         ["tempAvg", data?.main?.temp],
         ["tempMin", data?.main?.temp_min],
         ["tempMax", data?.main?.temp_max],
       ]],
+      ["Humidity", data?.main?.humidity],
+      ["Wind speed", data?.wind?.speed],
+      ["Wind Direction", data?.wind?.deg],
+      ["Time", data?.timezone]
     ];
   }
 

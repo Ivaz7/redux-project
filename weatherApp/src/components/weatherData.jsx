@@ -1,3 +1,4 @@
+import { formatDeg } from "../ultils/formatDeg";
 import { useGetWeather } from "./customHooks/useGetWeather";
 
 const WeatherData = () => {
@@ -28,6 +29,14 @@ const WeatherData = () => {
           <li>Maximum Temp: {info[1][2][1]} °C</li>
         </div>
       );
+    }
+
+    if (info[0] === "Wind Direction") {
+      return <li key={index}>{info[0]}: {formatDeg(info[1])}</li>
+    }
+
+    if (info[0] === "Humidity") {
+      return <li key={index}>{info[0]}: {info[1]}%</li>
     }
   
     return <li key={index}>{info[0]}: {info[1]}</li>;
