@@ -1,6 +1,5 @@
 @use './config' as c;
 
-
 body {
   position: relative;
   background-color: c.$white;
@@ -11,4 +10,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+img {
+  background-color: c.$blue;
+  border-radius: 1rem;
 }
