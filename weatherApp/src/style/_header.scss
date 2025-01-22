@@ -1,0 +1,19 @@
+@use './config' as c;
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 10vh;
+  width: 100%;
+
+  i {
+    font-size: 2rem;
+    color: c.$blue;
+  }
+
+  h1 {
+    font-family: merriweather, serif;
+    margin: 0;
+  }
+}

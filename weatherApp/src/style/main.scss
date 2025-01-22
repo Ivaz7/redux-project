@@ -1,1 +1,12 @@
-@use './config';
+@use './config' as c;
+@use './general';
+@use './header';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all ease-in-out 0.15s;
+  color: c.$black;
+  font-family: roboto, sans-serif;
+}
