@@ -1,4 +1,4 @@
-export const formatDeg = (num) => {
+export const formatWindDirection = (num) => {
   if (num === 0) {
     return "North"
   }
