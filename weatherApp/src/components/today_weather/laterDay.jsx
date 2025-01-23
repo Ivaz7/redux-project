@@ -15,7 +15,7 @@ const LaterDayInfo = (prop) => {
     const windArrow = useDirection(windDirection);
 
     return (
-      <div className="d-flex flex-column align-items-center flex-fill" key={index}>
+      <div className="col-auto text-center" key={index}>
         <div>{formatDate(timePlace)}</div>
 
         <div><strong>{description}</strong></div>
@@ -39,7 +39,7 @@ const LaterDayInfo = (prop) => {
   })
 
   return(
-    <div className="laterDayInfo d-flex flex-row align-items-center p-3 mx-2 gap-5 flex-wrap">
+    <div className="laterDayInfo row mx-2 p-2 d-flex justify-content-between gy-2">
       {renderTodayWeatherList}
     </div>
   )
