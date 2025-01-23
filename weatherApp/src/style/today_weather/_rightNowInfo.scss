@@ -9,8 +9,12 @@
     }
 
     &_bottom {
+      h4 {
+        font-family: merriweather, serif;        
+      }
+
       h3 {
-        font-family: merriweather, serif;
+        font-weight: bold;
       }
     }
   }

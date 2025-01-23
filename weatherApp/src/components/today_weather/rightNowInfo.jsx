@@ -17,9 +17,9 @@ const RightNowInfo = (prop) => {
         </div>
 
         <div className="rightNowInfo_header_bottom">
-          <h3>{description}</h3>
-          <h2>{tempAvg}°C</h2>
-          <h2>{formatTemp(tempAvg)}°F</h2>
+          <h4>{description}</h4>
+          <h3>{tempAvg}°C</h3>
+          <h3>{formatTemp(tempAvg)}°F</h3>
         </div>
       </div>
 
