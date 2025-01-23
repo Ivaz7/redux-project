@@ -1,0 +1,23 @@
+@use '../config' as c;
+
+.today {
+  background-color: c.$cream;
+  border-radius: 2rem;
+  margin: 0 1rem;
+  
+  h2, p {
+    margin: 0;
+    padding: 0;
+  }
+
+  &_header {
+    div {
+      img {
+        border-radius: 50%;
+        height: 2rem;
+        width: 2rem;
+        object-fit: cover;
+      }
+    }
+  }
+}

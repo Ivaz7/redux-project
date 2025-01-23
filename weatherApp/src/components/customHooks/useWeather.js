@@ -33,7 +33,7 @@ export const useWeather = (weather) => {
   });
 
   return {
-    country: weather?.city?.country,
+    country: weather?.city?.country.toLowerCase(),
     city: weather?.city?.name,
     dayWeatherList: returnDayList,
   };

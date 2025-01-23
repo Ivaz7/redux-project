@@ -1,0 +1,53 @@
+@use '../config' as c;
+
+.rightNowInfo {
+  &_header {
+    &_top {
+      h2 {
+        font-family: merriweather, serif;
+      }
+    }
+
+    &_bottom {
+      h3 {
+        font-family: merriweather, serif;
+      }
+    }
+  }
+
+  &_body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    text-align: center;
+    background-color: c.$darkCream;
+    width: 100%;
+    align-items: center;
+    border-radius: 1rem;
+    margin: 0 1rem;
+
+    .fa-droplet {
+      color: c.$blue;
+    }
+
+    .fa-icicles {
+      color: c.$white;
+    }
+
+    .fa-fire {
+      color: c.$red;
+    }
+
+    .fa-wind {
+      color: c.$gray;
+    }
+
+    .fa-user {
+      color: c.$orange;
+    }
+
+    .fa-compass {
+      color: c.$green;
+    }
+  }
+}

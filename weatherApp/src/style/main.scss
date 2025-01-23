@@ -1,6 +1,8 @@
 @use './config' as c;
 @use './general';
 @use './header';
+@use './today_weather/today';
+@use './today_weather/rightNowInfo';
 
 * {
   margin: 0;
