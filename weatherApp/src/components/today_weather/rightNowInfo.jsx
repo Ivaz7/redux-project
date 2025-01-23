@@ -9,7 +9,7 @@ const RightNowInfo = (prop) => {
   const windArrow = useDirection(windDirection) || { rotate: 0, direction: '' };
   
   return (
-    <div className="rightNowInfo d-flex flex-row gap-2">
+    <div className="rightNowInfo d-flex flex-row gap-1">
       <div className="rightNowInfo_header d-flex flex-column align-items-center text-center gap-2">
         <div className="rightNowInfo_header_top d-flex flex-row gap-1 align-items-center justify-content-center">
           <h2>{weather}</h2>
@@ -23,13 +23,30 @@ const RightNowInfo = (prop) => {
         </div>
       </div>
 
-      <div className="rightNowInfo_body p-2">
-        <h4><span>Humidity</span> <i className="fa-solid fa-droplet"></i> {humidity}%</h4>
-        <h4><span>Highest</span> <i className="fa-solid fa-fire"></i> {tempMax}°C | {formatTemp(tempMax)}°F</h4>
-        <h4><span>Lowest</span> <i className="fa-solid fa-icicles"></i> {tempMin}°C | {formatTemp(tempMin)}°F</h4>
-        <h4><span>Feels</span> <i className="fa-solid fa-user"></i> {tempFeels}°C | {formatTemp(tempFeels)}°F</h4>
-        <h4><span>Wind</span> <i className="fa-solid fa-compass"></i> {formatWindDirection(windDirection)}   <i style={{ transform: `rotate(${windArrow.rotate || 0}deg)` }} className={`fa-solid ${windArrow.direction} arrow`}></i></h4>
-        <h4><span>Wind</span> <i className="fa-solid fa-wind"></i> {formatSpeedWind(windSpeed, "kilo")} | {formatSpeedWind(windSpeed, "mile")}</h4>
+      <div className="rightNowInfo_body row p-2 d-flex justify-content-center align-items-center mx-2">
+        <div className="col-lg-4 col-12">
+          <h4><span>Highest</span> <i className="fa-solid fa-fire"></i> {tempMax}°C | {formatTemp(tempMax)}°F</h4>
+        </div>
+
+        <div className="col-lg-4 co-12">
+          <h4><span>Lowest</span> <i className="fa-solid fa-icicles"></i> {tempMin}°C | {formatTemp(tempMin)}°F</h4>
+        </div>
+
+        <div className="col-lg-4 col-12">
+          <h4><span>Feels</span> <i className="fa-solid fa-user"></i> {tempFeels}°C | {formatTemp(tempFeels)}°F</h4>
+        </div>
+
+        <div className="col-lg-4 col-12">
+          <h4><span>Humidity</span> <i className="fa-solid fa-droplet"></i> {humidity}%</h4>
+        </div>
+
+        <div className="col-lg-4 col-12">
+          <h4><span>Wind</span> <i className="fa-solid fa-compass"></i> {formatWindDirection(windDirection)}   <i style={{ transform: `rotate(${windArrow.rotate || 0}deg)` }} className={`fa-solid ${windArrow.direction} arrow`}></i></h4>
+        </div>
+
+        <div className="col-lg-4 col-12">
+          <h4><span>Wind</span> <i className="fa-solid fa-wind"></i> {formatSpeedWind(windSpeed, "kilo")} | {formatSpeedWind(windSpeed, "mile")}</h4>
+        </div>
       </div>
     </div>
   )

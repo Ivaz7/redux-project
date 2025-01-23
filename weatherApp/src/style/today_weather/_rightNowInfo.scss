@@ -20,15 +20,10 @@
   }
 
   &_body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    border-radius: 1rem;
     text-align: center;
     background-color: c.$darkCream;
     width: 100%;
-    align-items: center;
-    border-radius: 1rem;
-    margin: 0 1rem;
 
     h3 {
       span {

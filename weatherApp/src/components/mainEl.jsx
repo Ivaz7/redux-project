@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { useWeather } from "./customHooks/useWeather";
 
 const MainEl = () => {
-  const { data, isLoading, IsError, error } = useGetWeatherQuery({ q:"tokyo"})
+  const { data, isLoading, IsError, error } = useGetWeatherQuery({ q:"bandung"})
   const dispatch = useDispatch();
   const normalizeData = useWeather(data);
 
