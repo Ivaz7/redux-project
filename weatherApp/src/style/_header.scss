@@ -8,8 +8,10 @@ header {
   width: 100%;
 
   i {
+    background-image: linear-gradient(to top, c.$red, c.$gray, c.$blue);    
     font-size: 2rem;
-    color: c.$blue;
+    background-clip: text;
+    color: transparent;
   }
 
   h1 {

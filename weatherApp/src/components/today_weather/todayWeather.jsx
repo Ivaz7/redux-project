@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import RightNowInfo from "./rightNowInfo";
 import { formatDate } from "../../ultils/formatDate";
+import LaterDayInfo from "./laterDay";
 
 const TodayWeather = () => {
   const data = useSelector((state) => state.weatherDataSlice.data);
@@ -30,7 +31,7 @@ const TodayWeather = () => {
         </div>  
 
         <div className="today_footer">
-
+          <LaterDayInfo todayWeatherList={todayWeatherList} />
         </div>
       </section>
     </>

@@ -26,28 +26,10 @@
     border-radius: 1rem;
     margin: 0 1rem;
 
-    .fa-droplet {
-      color: c.$blue;
-    }
-
-    .fa-icicles {
-      color: c.$white;
-    }
-
-    .fa-fire {
-      color: c.$red;
-    }
-
-    .fa-wind {
-      color: c.$gray;
-    }
-
-    .fa-user {
-      color: c.$orange;
-    }
-
-    .fa-compass {
-      color: c.$green;
+    h3 {
+      span {
+        font-family: merriweather, serif;
+      }
     }
   }
 }

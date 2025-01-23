@@ -1,0 +1,29 @@
+@use './config' as c;
+
+.arrow {
+  color: c.$green;
+}
+
+.fa-droplet {
+  color: c.$blue;
+}
+
+.fa-icicles {
+  color: c.$white;
+}
+
+.fa-fire {
+  color: c.$red;
+}
+
+.fa-wind {
+  color: c.$gray;
+}
+
+.fa-user {
+  color: c.$orange;
+}
+
+.fa-compass {
+  color: c.$green;
+}
