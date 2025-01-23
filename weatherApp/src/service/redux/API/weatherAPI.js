@@ -9,15 +9,28 @@ export const weatherApi = createApi({
   }),
   endpoints: (builder) => ({
     getWeather: builder.query({
-      query: ({ lat, lon }) => ({
-        url: 'weather',  
-        params: {
-          lat,
-          lon,
-          appid: apiToken,
-          units: 'metric'  
+      query: ({ lat, lon, q }) => {
+        if (lat && lon) {
+          return {
+            url: 'forecast',  
+            params: {
+              lat,
+              lon,
+              appid: apiToken,
+              units: 'metric'  
+            }
+          }
+        } else {
+          return {
+            url: 'forecast',  
+            params: {
+              q,
+              appid: apiToken,
+              units: 'metric'  
+            }
+          }
         }
-      })
+      }
     })
   })
 })
