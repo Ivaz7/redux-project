@@ -6,7 +6,7 @@ import { useDirection } from "../customHooks/useDirection";
 const RightNowInfo = (prop) => {
   const { description, humidity, icon, tempAvg, tempFeels, tempMax, tempMin, weather, windDirection, windSpeed } = prop.rightNowWeather;
 
-  const windArrow = useDirection(windDirection);
+  const windArrow = useDirection(windDirection) || { rotate: 0, direction: '' };
   
   return (
     <div className="rightNowInfo d-flex flex-row gap-2">
@@ -17,9 +17,9 @@ const RightNowInfo = (prop) => {
         </div>
 
         <div className="rightNowInfo_header_bottom">
-          <h3>{description}</h3>
-          <h2>{tempAvg}°C</h2>
-          <h2>{formatTemp(tempAvg)}°F</h2>
+          <h4>{description}</h4>
+          <h3>{tempAvg}°C</h3>
+          <h3>{formatTemp(tempAvg)}°F</h3>
         </div>
       </div>
 
@@ -28,7 +28,7 @@ const RightNowInfo = (prop) => {
         <h3><span>Highest</span> <i className="fa-solid fa-fire"></i> {tempMax}°C | {formatTemp(tempMax)}°F</h3>
         <h3><span>Lowest</span> <i className="fa-solid fa-icicles"></i> {tempMin}°C | {formatTemp(tempMin)}°F</h3>
         <h3><span>Feels</span> <i className="fa-solid fa-user"></i> {tempFeels}°C | {formatTemp(tempFeels)}°F</h3>
-        <h3><span>Wind</span> <i className="fa-solid fa-compass"></i> {formatWindDirection(windDirection)}   <i style={{ transform: `rotate(${windArrow.rotate}deg)` }} className={`fa-solid ${windArrow.direction} arrow`}></i></h3>
+        <h3><span>Wind</span> <i className="fa-solid fa-compass"></i> {formatWindDirection(windDirection)}   <i style={{ transform: `rotate(${windArrow.rotate || 0}deg)` }} className={`fa-solid ${windArrow.direction} arrow`}></i></h3>
         <h3><span>Wind</span> <i className="fa-solid fa-wind"></i> {formatSpeedWind(windSpeed, "kilo")} | {formatSpeedWind(windSpeed, "mile")}</h3>
       </div>
     </div>

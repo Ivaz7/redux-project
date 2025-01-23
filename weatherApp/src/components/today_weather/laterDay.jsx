@@ -4,8 +4,6 @@ import { formatTemp } from "../../ultils/formatTemp";
 import { useDirection } from "../customHooks/useDirection";
 
 const LaterDayInfo = (prop) => {
-  const lengthArray = prop.todayWeatherList.length - 1;
-
   const renderTodayWeatherList = prop.todayWeatherList.map((info, index) => {
     if (index === 0) {
       return;
@@ -17,7 +15,7 @@ const LaterDayInfo = (prop) => {
     const windArrow = useDirection(windDirection);
 
     return (
-      <div className={`${index !== lengthArray ? "borderRight" : ""} d-flex flex-column align-items-center flex-fill`} key={index}>
+      <div className="d-flex flex-column align-items-center flex-fill" key={index}>
         <div>{formatDate(timePlace)}</div>
 
         <div><strong>{description}</strong></div>
@@ -41,7 +39,7 @@ const LaterDayInfo = (prop) => {
   })
 
   return(
-    <div className="laterDayInfo d-flex flex-row align-items-center p-3 mx-2 gap-5">
+    <div className="laterDayInfo d-flex flex-row align-items-center p-3 mx-2 gap-5 flex-wrap">
       {renderTodayWeatherList}
     </div>
   )
