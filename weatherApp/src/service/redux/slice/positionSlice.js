@@ -4,6 +4,7 @@ const initialState = {
   latitude: null,
   longtitude: null,
   city: null,
+  isPosition: false,
 }
 
 export const positionSlice = createSlice({

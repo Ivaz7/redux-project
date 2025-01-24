@@ -3,13 +3,14 @@ import TodayWeather from "./today_weather/todayWeather";
 import { changeDataWeather } from "../service/redux/slice/weatherDataSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { setWeather } from "./function/setWeather";
+import { formatDataWeather } from "../ultils/formatDataWeather";
 import { Bars } from "react-loader-spinner";
+import LaterDay from "./laterDay";
 
 const MainEl = () => {
   const { data, isLoading, IsError, error } = useGetWeatherQuery({ q:"bandung"})
   const dispatch = useDispatch();
-  const normalizeData = setWeather(data);
+  const normalizeData = formatDataWeather(data);
 
   useEffect(() => {
     dispatch(changeDataWeather(normalizeData));
@@ -32,8 +33,9 @@ const MainEl = () => {
   }
 
   return (
-    <main>
+    <main className="d-flex flex-column gap-2 justify-content center align-items-center">
       <TodayWeather />
+      <LaterDay />
     </main>
   )
 }

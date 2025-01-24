@@ -6,6 +6,7 @@
 @use './today_weather/laterHourInfo';
 @use './icons';
 @use './loadingError';
+@use './laterDayWeather';
 
 * {
   margin: 0;
