@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  latitude: 0,
-  longtitude: 0,
+  latitude: "",
+  longtitude: "",
   city: "",
   isPosition: false,
 }
@@ -14,9 +14,17 @@ export const positionSlice = createSlice({
     chagePosition: (state, action) => {
       const { lat, lon, city } = action.payload;
 
-      state.latitude = lat;
-      state.longtitude = lon;
-      state.city = city;
+      if (lat !== undefined) {
+        state.latitude = lat;  
+      }
+
+      if (lon !== undefined) {
+        state.longtitude = lon;
+      }
+
+      if (city !== undefined) {
+        state.city = city;
+      }
     },
     setPosition: (state) => {
       state.isPosition = !state.isPosition;

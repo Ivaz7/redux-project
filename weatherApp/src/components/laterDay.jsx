@@ -48,18 +48,18 @@ const LaterDay = () => {
               <i className="fa-solid fa-droplet"></i>
               {humidity}%
             </h6>
-              
-            <h6 className="d-flex flex-row justify-content-center align-items-center gap-1">
-              <i className="fa-solid fa-compass"></i>
-              {formatWindDirection(windDirection)}
-              <i style={{ transform: `rotate(${wdDirec}deg)` }} className={`fa-solid fa-arrow-up arrow`}></i>
-            </h6>
 
             <h6><i className="fa-solid fa-fire"></i> {tempMax}°C | {formatTemp(tempMax)}°F</h6>
 
             <h6><i className="fa-solid fa-icicles"></i> {tempMin}°C | {formatTemp(tempMin)}°F</h6>
 
             <h6><i className="fa-solid fa-user"></i> {tempFeels}°C | {formatTemp(tempFeels)}°F</h6>
+              
+            <h6 className="d-flex flex-row justify-content-center align-items-center gap-1">
+              <i className="fa-solid fa-compass"></i>
+              {formatWindDirection(windDirection)}
+              <i style={{ transform: `rotate(${wdDirec}deg)` }} className={`fa-solid fa-arrow-up arrow`}></i>
+            </h6>
 
             <h6><i className="fa-solid fa-wind"></i> {formatSpeedWind(windSpeed, "kilo")} | {formatSpeedWind(windSpeed, "mile")}</h6>
           </div>
