@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  latitude: null,
-  longtitude: null,
-  city: null,
+  latitude: 0,
+  longtitude: 0,
+  city: "",
   isPosition: false,
 }
 
@@ -17,10 +17,13 @@ export const positionSlice = createSlice({
       state.latitude = lat;
       state.longtitude = lon;
       state.city = city;
+    },
+    setPosition: (state) => {
+      state.isPosition = !state.isPosition;
     }
   }
 })
 
-export const { chagePosition } = positionSlice.actions;
+export const { chagePosition, setPosition } = positionSlice.actions;
 
 export default positionSlice.reducer;

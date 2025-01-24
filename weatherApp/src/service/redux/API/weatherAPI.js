@@ -30,9 +30,10 @@ export const weatherApi = createApi({
             }
           }
         }
-      }
+      },
+      lazy: true,
     })
   })
-})
+});
 
-export const { useGetWeatherQuery } = weatherApi;
+export const { useLazyGetWeatherQuery } = weatherApi;
