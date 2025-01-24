@@ -1,4 +1,4 @@
-export const setWeather = (weather) => {
+export const formatDataWeather = (weather) => {
   let count = 0;
   let returnDayList = [];
   let perDayList = [];
