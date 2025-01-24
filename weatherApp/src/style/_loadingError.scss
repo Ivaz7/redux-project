@@ -1,0 +1,7 @@
+@use './config' as c;
+
+.loadingError {
+  width: 100%;
+  height: 90vh;
+  color: c.$blue;
+}

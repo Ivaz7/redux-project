@@ -3,8 +3,9 @@
 @use './header';
 @use './today_weather/today';
 @use './today_weather/rightNowInfo';
-@use './today_weather/laterDayInfo';
+@use './today_weather/laterHourInfo';
 @use './icons';
+@use './loadingError';
 
 * {
   margin: 0;
