@@ -1,0 +1,19 @@
+@use '../config' as c;
+
+.laterHourInfo {
+  border-radius: 1rem;
+  background-color: c.$darkCream;
+}
+
+.buttonLaterInfo {
+  user-select: none;
+  border: none;
+  height: fit-content;
+  border-radius: 1rem;
+  background-color: c.$cream;
+  
+  &:hover {
+    background-color: c.$white;
+    padding: 0.5% 1%;
+  }
+}

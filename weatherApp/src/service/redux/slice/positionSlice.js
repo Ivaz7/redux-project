@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   latitude: null,
   longtitude: null,
+  city: null,
 }
 
 export const positionSlice = createSlice({
@@ -10,10 +11,11 @@ export const positionSlice = createSlice({
   initialState,
   reducers: {
     chagePosition: (state, action) => {
-      const { lat, lon } = action.payload;
+      const { lat, lon, city } = action.payload;
 
       state.latitude = lat;
       state.longtitude = lon;
+      state.city = city;
     }
   }
 })

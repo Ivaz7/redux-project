@@ -1,15 +1,14 @@
 import { formatWindDirection } from "../../ultils/formatDeg";
 import { formatSpeedWind } from "../../ultils/formatSpeed";
 import { formatTemp } from "../../ultils/formatTemp";
-import { useDirection } from "../customHooks/useDirection";
 
 const RightNowInfo = (prop) => {
   const { description, humidity, icon, tempAvg, tempFeels, tempMax, tempMin, weather, windDirection, windSpeed } = prop.rightNowWeather;
 
-  const windArrow = useDirection(windDirection) || { rotate: 0, direction: '' };
+  const wdDirec = windDirection || 0;
   
   return (
-    <div className="rightNowInfo d-flex flex-row gap-1">
+    <div className="rightNowInfo d-flex flex-sm-row flex-column gap-1">
       <div className="rightNowInfo_header d-flex flex-column align-items-center text-center gap-2">
         <div className="rightNowInfo_header_top d-flex flex-row gap-1 align-items-center justify-content-center">
           <h2>{weather}</h2>
@@ -18,12 +17,15 @@ const RightNowInfo = (prop) => {
 
         <div className="rightNowInfo_header_bottom">
           <h4>{description}</h4>
-          <h3>{tempAvg}°C</h3>
-          <h3>{formatTemp(tempAvg)}°F</h3>
+          
+          <div className="d-flex flex-row gap-2">
+            <h3>{tempAvg}°C</h3>
+            <h3>{formatTemp(tempAvg)}°F</h3>
+          </div>
         </div>
       </div>
 
-      <div className="rightNowInfo_body row p-2 d-flex justify-content-center align-items-center mx-2">
+      <div className="rightNowInfo_body row p-2 d-flex justify-content-center align-items-center mx-0 mx-sm-2">
         <div className="col-lg-4 col-12">
           <h4><span>Highest</span> <i className="fa-solid fa-fire"></i> {tempMax}°C | {formatTemp(tempMax)}°F</h4>
         </div>
@@ -41,7 +43,7 @@ const RightNowInfo = (prop) => {
         </div>
 
         <div className="col-lg-4 col-12">
-          <h4><span>Wind</span> <i className="fa-solid fa-compass"></i> {formatWindDirection(windDirection)}   <i style={{ transform: `rotate(${windArrow.rotate || 0}deg)` }} className={`fa-solid ${windArrow.direction} arrow`}></i></h4>
+          <h4><span>Wind</span> <i className="fa-solid fa-compass"></i> {formatWindDirection(windDirection)}   <i style={{ transform: `rotate(${wdDirec}deg)` }} className={`fa-solid fa-arrow-up arrow`}></i></h4>
         </div>
 
         <div className="col-lg-4 col-12">

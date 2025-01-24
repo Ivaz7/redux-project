@@ -1,16 +1,18 @@
 import { useSelector } from "react-redux";
 import RightNowInfo from "./rightNowInfo";
 import { formatDate } from "../../ultils/formatDate";
-import LaterDayInfo from "./laterDay";
+import LaterHourInfo from "./laterHour";
 
 const TodayWeather = () => {
   const data = useSelector((state) => state.weatherDataSlice.data);
+  const hour = useSelector((state) => state.weatherChoiceSlice.hour);
+  const day = useSelector((state) => state.weatherChoiceSlice.day);
 
   const { city, country, dayWeatherList } = data;
 
-  const todayWeatherList = dayWeatherList[0] || [];
+  const todayWeatherList = dayWeatherList[day || 0] || [];
 
-  const rightNowWeather = todayWeatherList[0] || [];
+  const rightNowWeather = todayWeatherList[hour || 0] || [];
 
   const { timePlace } = rightNowWeather;
 
@@ -31,7 +33,7 @@ const TodayWeather = () => {
         </div>  
 
         <div className="today_footer">
-          <LaterDayInfo todayWeatherList={todayWeatherList} />
+          <LaterHourInfo todayWeatherList={todayWeatherList} />
         </div>
       </section>
     </>
