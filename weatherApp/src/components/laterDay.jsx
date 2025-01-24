@@ -25,13 +25,13 @@ const LaterDay = () => {
 
     return (
       <button 
-        className="col-auto" 
+        className="col-auto d-flex flex-column align-items-center" 
         key={index}
         onClick={() => dispatch(changeWeatherChoice({ dayAct : index }))}
       >
         <h2>{formatDate(timePlace)}</h2>
-        <div className="d-flex flex-row justify-content-center align-items-center gap-2">
-          <div>
+        <div className="d-flex flex-row justify-content-center align-items-center gap-1">
+          <div className="left-side">
             <div className="d-flex flex-row align-items-center justify-content-center gap-1">
               <h3>{weather}</h3>
               <img src={`https://openweathermap.org/img/wn/${icon}.png`} alt="Weather Icon" />
@@ -40,19 +40,19 @@ const LaterDay = () => {
             <h5>{description}</h5>
 
             <h6>{tempAvg}°C | {formatTemp(tempAvg)}°F</h6>
+          </div>
+
+          <div className="right-side">
+            <h6 className="d-flex gap-1 align-items-center justify-content-center">
+              Humidity
+              <i className="fa-solid fa-droplet"></i>
+              {humidity}%
+            </h6>
               
             <h6 className="d-flex flex-row justify-content-center align-items-center gap-1">
               <i className="fa-solid fa-compass"></i>
               {formatWindDirection(windDirection)}
               <i style={{ transform: `rotate(${wdDirec}deg)` }} className={`fa-solid fa-arrow-up arrow`}></i>
-            </h6>
-          </div>
-
-          <div>
-            <h6 className="d-flex gap-1 align-items-center justify-content-center">
-              Humidity
-              <i className="fa-solid fa-droplet"></i>
-              {humidity}%
             </h6>
 
             <h6><i className="fa-solid fa-fire"></i> {tempMax}°C | {formatTemp(tempMax)}°F</h6>

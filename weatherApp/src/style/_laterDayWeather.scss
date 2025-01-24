@@ -11,7 +11,8 @@
   }
   
   h6 {
-    margin: 0.35rem 0;
+    margin: 0.2rem 0;
+    white-space: nowrap;
   }
   
   button {
@@ -21,6 +22,20 @@
     border-left: 0.1rem solid c.$darkCream;
     border-right: 0.1rem solid c.$darkCream;
     background-color: c.$cream;
+
+    h2 {
+      margin: 0;
+      padding: 0;
+      white-space: nowrap;
+    }
+
+    .left-side {
+      width: 47%;
+    }
+
+    .right-side {
+      width: 53%;
+    }
 
     &:hover {
       background-color: c.$darkCream;
