@@ -9,22 +9,23 @@
   
   i {
     color: c.$white;
-    font-size: 1.3rem;
   }
   
   .fa-rotate {
+    font-size: 1.5rem;
     position: relative;
     padding: 0 0.3rem;
-    padding-top: 0.6rem;
+    padding-top: 0.5rem;
     transform: scaleX(-1);
   }
   
   .fa-location-dot {
+    font-size: 1rem;
     margin: 0;
     padding: 0;
     position: absolute;
-    left: 0.5rem;
-    bottom: 0.6rem;
+    left: 0.65rem;
+    bottom: 1rem;
     text-shadow: 0.1rem 0.1rem 0 c.$blue, -0.1rem 0.1rem 0 c.$blue;
   }
 

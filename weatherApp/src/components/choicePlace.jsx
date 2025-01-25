@@ -7,9 +7,15 @@ import { setIsPosition, setChagePosition } from "../service/redux/slice/position
 import { useEffect } from "react";
 
 const ChoicePlace = () => {
-  const latitude = useSelector((state) => state.positionSlice.latitude);
-  const longitude = useSelector((state) => state.positionSlice.longitude);
-  const city = useSelector((state) => state.positionSlice.city);
+  const position = useSelector((state) => state.positionSlice);
+
+  const latitude = position.latitude;
+  const longitude = position.longitude;
+  const city = position.city;
+
+  const isCityFilled = city !== "";
+  const isLatLonFilled = latitude || longitude;
+
   const dispatch = useDispatch();
   const [triggerGetWeather, { data, isLoading, isError, error }] = useLazyGetWeatherQuery();
   
@@ -29,7 +35,6 @@ const ChoicePlace = () => {
     }
   };
 
-
   const changePlace = (e) => {
     e.preventDefault();
     
@@ -42,7 +47,7 @@ const ChoicePlace = () => {
       const normalizedData = formatDataWeather(data);
       dispatch(setDataWeather(normalizedData));
     }
-  }, [data, dispatch])
+  }, [data, dispatch]);
 
   if (isLoading) {
     return (
@@ -61,32 +66,35 @@ const ChoicePlace = () => {
   }
 
   return (
-    <section>
+    <section className="choiceLocation p-2 d-flex flex-column gap-5 justify-content-center align-items-center">
       <h2>Find Out the Weather in Your Desired Location</h2>
 
       <form onSubmit={changePlace} className="inputUser">
         <input
           type="text"
-          placeholder="Please Type Your City"
+          placeholder={isLatLonFilled ? "You selected Coordinate" : "Provide City Name"}
           name="city"
           value={city}
           onChange={handleChange}
+          disabled={isLatLonFilled} 
         />
 
         <div>
           <input
             type="text"
-            placeholder="Please Type Your Number(Latitud)e"
+            placeholder={isCityFilled ? "City is selected" : "Provide Latitude"}
             name="lat"
             value={latitude}
             onChange={handleChange}
+            disabled={isCityFilled} 
           />
           <input
             type="text"
-            placeholder="Please Type Your Longitude"
+            placeholder={isCityFilled ? "City is selected" : "Provide Longitude"}
             name="lon"
             value={longitude}
             onChange={handleChange}
+            disabled={isCityFilled} 
           />
         </div>
 
