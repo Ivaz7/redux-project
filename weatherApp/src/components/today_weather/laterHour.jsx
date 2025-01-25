@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { formatDate } from "../../ultils/formatDate";
 import { formatSpeedWind } from "../../ultils/formatSpeed";
 import { formatTemp } from "../../ultils/formatTemp";
-import { changeWeatherChoice } from "../../service/redux/slice/weatherChoiseSlice";
+import { setWeatherChoice } from "../../service/redux/slice/weatherChoiseSlice";
 
 const LaterHourInfo = (prop) => {
   const hour = useSelector((state) => state.weatherChoiceSlice.hour);
@@ -22,7 +22,7 @@ const LaterHourInfo = (prop) => {
         className="buttonLaterInfo col-auto text-center" 
         key={index} 
         id={index}
-        onClick={() => dispatch(changeWeatherChoice({ hourAct: index }))}
+        onClick={() => dispatch(setWeatherChoice({ hourAct: index }))}
       >
         <div>{formatDate(timePlace)}</div>
 

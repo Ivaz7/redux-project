@@ -3,7 +3,7 @@ import { formatDate } from "../ultils/formatDate";
 import { formatTemp } from "../ultils/formatTemp";
 import { formatWindDirection } from "../ultils/formatDeg";
 import { formatSpeedWind } from "../ultils/formatSpeed";
-import { changeWeatherChoice } from '../service/redux/slice/weatherChoiseSlice'
+import { setWeatherChoice } from '../service/redux/slice/weatherChoiseSlice'
 
 const LaterDay = () => {
   const data = useSelector((state) => state.weatherDataSlice.data);
@@ -27,7 +27,7 @@ const LaterDay = () => {
       <button 
         className="col-auto d-flex flex-column align-items-center" 
         key={index}
-        onClick={() => dispatch(changeWeatherChoice({ dayAct : index }))}
+        onClick={() => dispatch(setWeatherChoice({ dayAct : index }))}
       >
         <h2>{formatDate(timePlace)}</h2>
         <div className="d-flex flex-row justify-content-center align-items-center gap-1">

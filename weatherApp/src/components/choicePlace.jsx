@@ -1,35 +1,31 @@
 import { Bars } from "react-loader-spinner";
 import { useLazyGetWeatherQuery } from "../service/redux/API/weatherAPI";
-import { changeDataWeather } from "../service/redux/slice/weatherDataSlice";
+import { setDataWeather } from "../service/redux/slice/weatherDataSlice";
 import { formatDataWeather } from "../ultils/formatDataWeather";
 import { useDispatch, useSelector } from "react-redux";
-import { setPosition, chagePosition } from "../service/redux/slice/positionSlice";
+import { setIsPosition, setChagePosition } from "../service/redux/slice/positionSlice";
 import { useEffect } from "react";
 
 const ChoicePlace = () => {
   const latitude = useSelector((state) => state.positionSlice.latitude);
-  const lontitude = useSelector((state) => state.positionSlice.longtitude);
+  const longitude = useSelector((state) => state.positionSlice.longitude);
   const city = useSelector((state) => state.positionSlice.city);
   const dispatch = useDispatch();
   const [triggerGetWeather, { data, isLoading, isError, error }] = useLazyGetWeatherQuery();
-
-  console.log(latitude)
-  console.log(lontitude)
-  console.log(city)
   
   const handleChange = (e) => {
     const { name, value } = e.target;
   
     if (name === "city") {
-      dispatch(chagePosition({ city: value || "" }));
+      dispatch(setChagePosition({ city: value || "" }));
     }
   
     if (name === "lat") {
-      dispatch(chagePosition({ lat: value || "" }));
+      dispatch(setChagePosition({ lat: value || "" }));
     }
   
     if (name === "lon") {
-      dispatch(chagePosition({ lon: value || "" }));
+      dispatch(setChagePosition({ lon: value || "" }));
     }
   };
 
@@ -37,14 +33,14 @@ const ChoicePlace = () => {
   const changePlace = (e) => {
     e.preventDefault();
     
-    triggerGetWeather({ q: city, lat: Number(latitude), lon: Number(lontitude) });
+    triggerGetWeather({ q: city, lat: Number(latitude), lon: Number(longitude) });
   };
   
   useEffect(() => {
     if (data) {
-      dispatch(setPosition());
+      dispatch(setIsPosition());
       const normalizedData = formatDataWeather(data);
-      dispatch(changeDataWeather(normalizedData));
+      dispatch(setDataWeather(normalizedData));
     }
   }, [data, dispatch])
 
@@ -66,7 +62,7 @@ const ChoicePlace = () => {
 
   return (
     <section>
-      <h2>Please Choose Place You Want To See Down Here</h2>
+      <h2>Find Out the Weather in Your Desired Location</h2>
 
       <form onSubmit={changePlace} className="inputUser">
         <input
@@ -89,7 +85,7 @@ const ChoicePlace = () => {
             type="text"
             placeholder="Please Type Your Longitude"
             name="lon"
-            value={lontitude}
+            value={longitude}
             onChange={handleChange}
           />
         </div>

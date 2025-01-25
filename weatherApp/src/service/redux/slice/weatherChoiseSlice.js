@@ -9,7 +9,7 @@ export const weatherChoiceSlice = createSlice({
   name: "weatherChoiceSlice",
   initialState,
   reducers: {
-    changeWeatherChoice: (state, action) => {
+    setWeatherChoice: (state, action) => {
       const { hourAct, dayAct } = action.payload;
 
       if (hourAct !== undefined) {
@@ -29,6 +29,6 @@ export const weatherChoiceSlice = createSlice({
   }
 })
 
-export const { changeWeatherChoice } = weatherChoiceSlice.actions;
+export const { setWeatherChoice } = weatherChoiceSlice.actions;
 
 export default weatherChoiceSlice.reducer;
