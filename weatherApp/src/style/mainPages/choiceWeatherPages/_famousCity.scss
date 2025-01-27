@@ -1,0 +1,24 @@
+@use '../../config' as c;
+
+.famousCity {
+  button {
+    border: none;
+    border-radius: 1rem;
+    background-position: center;
+    background-size: cover;
+    border-bottom: 0.4rem solid c.$blue;
+    
+    h5, h6 {
+      display: inline;
+      font-weight: bold;
+      padding: 0 0.3rem;
+      border-radius: 0.3rem;
+      font-family: merriweather, serif;
+      background-color: #808080c5;
+    }
+  
+    &:hover {
+      box-shadow: 0 0 0.7rem c.$blue;
+    }
+  }
+}

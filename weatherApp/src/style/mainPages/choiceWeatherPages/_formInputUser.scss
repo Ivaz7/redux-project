@@ -1,0 +1,37 @@
+@use '../../config' as c;
+
+.inputUser { //form
+  background-color: c.$cream;
+  border-radius: 1rem;
+
+  input {
+    padding: 0.3rem;
+    border: none;
+    outline: none;
+    border-radius: 0.3rem;
+    background-color: c.$white;
+
+    &:disabled {
+      background-color: c.$darkCream;
+    }
+  }
+
+  h6 {
+    font-family: robot, sans-serif;
+  }
+
+  button {
+    border: none;
+    background-color: c.$blue;
+    color: c.$white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+
+    &:hover {
+      background-color: c.$darkCream;
+      color: c.$blue;  
+    }
+  }
+}

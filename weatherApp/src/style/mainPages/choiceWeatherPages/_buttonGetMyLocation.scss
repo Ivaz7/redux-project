@@ -1,0 +1,21 @@
+@use '../../config' as c;
+
+.buttonGetMyLocation {
+  border-radius: 0.4rem;
+  border: none;
+  background-color: c.$blue;
+  color: c.$white;
+
+  i {
+    color: c.$white;
+  }
+
+  &:hover {
+    background-color: c.$darkCream;
+    color: c.$blue;
+
+    i {
+      color: c.$blue;
+    }
+  }
+}

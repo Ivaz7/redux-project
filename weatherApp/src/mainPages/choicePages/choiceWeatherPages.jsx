@@ -4,9 +4,12 @@ import { useEffect } from "react";
 import { useLazyGetWeatherQuery } from "../../service/redux/API/weatherAPI";
 import { setDataWeather } from "../../service/redux/slice/weatherDataSlice";
 import { formatDataWeather } from "../../ultils/formatDataWeather";
-import { setChagePosition, setIsPosition } from "../../service/redux/slice/positionSlice";
+import { setIsPosition } from "../../service/redux/slice/positionSlice";
 import { useNavigate } from "react-router-dom";
 import ResetButton from "../../components/resetButton";
+import FormInputUser from "./formInputUser";
+import FamousCity from "./famousCity";
+import ButtonGetMyLocation from "./getMyLocation";
 
 const ChoicePlacePages = () => {
   const position = useSelector((state) => state.positionSlice);
@@ -15,16 +18,6 @@ const ChoicePlacePages = () => {
   const navigate = useNavigate();
 
   const [triggerGetWeather, { data, isLoading, isError, error, reset }] = useLazyGetWeatherQuery();
-  
-  const isCityFilled = city !== "";
-  const isLatLonFilled = latitude || longitude;
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "city") dispatch(setChagePosition({ city: value || "" }));
-    if (name === "lat") dispatch(setChagePosition({ lat: value || "" }));
-    if (name === "lon") dispatch(setChagePosition({ lon: value || "" }));
-  };
 
   const changePlace = (e) => {
     e.preventDefault();
@@ -65,44 +58,22 @@ const ChoicePlacePages = () => {
   }
 
   return (
-    <section className="choiceLocation p-2 d-flex flex-column gap-5 justify-content-center align-items-center">
+    <section className="choiceLocation p-2 d-flex flex-column gap-4 justify-content-center align-items-center text-center">
       <h2>Find Out the Weather in Your Desired Location</h2>
 
-      <form onSubmit={changePlace} className="inputUser">
-        <input
-          type="text"
-          placeholder={isLatLonFilled ? "You selected Coordinate" : "Provide City Name"}
-          name="city"
-          value={city}
-          onChange={handleChange}
-          disabled={isLatLonFilled} 
-        />
+      <ButtonGetMyLocation 
+        triggerGetWeather={triggerGetWeather}
+      />
 
-        <div>
-          <input
-            type="text"
-            placeholder={isCityFilled ? "City is selected" : "Provide Latitude"}
-            name="lat"
-            value={latitude}
-            onChange={handleChange}
-            disabled={isCityFilled} 
-          />
-          <input
-            type="text"
-            placeholder={isCityFilled ? "City is selected" : "Provide Longitude"}
-            name="lon"
-            value={longitude}
-            onChange={handleChange}
-            disabled={isCityFilled} 
-          />
-        </div>
+      <FormInputUser 
+        position={position}
+        changePlace={changePlace}
+      />
 
-        <button type="submit">Submit</button>
-      </form>
-
-      <div className="famousCity">
-        {/* Display famous cities here if needed */}
-      </div>
+      <FamousCity 
+        changePlace={changePlace}
+        triggerGetWeather={triggerGetWeather}
+      />
     </section>
   );
 };

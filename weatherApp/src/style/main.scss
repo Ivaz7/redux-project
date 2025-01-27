@@ -8,6 +8,11 @@
 @use './loadingError';
 @use './mainPages/weatherPages/laterDayWeather';
 @use './buttonResetLocation';
+@use './mainPages/choiceWeatherPages/choiceLocation';
+@use './mainPages/choiceWeatherPages/buttonGetMyLocation';
+@use './mainPages/choiceWeatherPages/formInputUser';
+@use './flagCountry';
+@use './mainPages/choiceWeatherPages/famousCity';
 
 * {
   margin: 0;
