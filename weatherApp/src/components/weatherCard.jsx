@@ -2,8 +2,8 @@ import { formatSpeedWind } from "../ultils/formatSpeed";
 import { formatTemp } from "../ultils/formatTemp";
 import { formatWindDirection } from "../ultils/formatDeg";
 
-const MainWeatherCard = (prop) => {
-  const { label, icon, value, units, rotate } = prop;
+const WeatherCard = (prop) => {
+  const { label, icon, value, units, rotate, headingLevel = "h4" } = prop;
 
   const renderValue = () => {
     switch (units) {
@@ -18,18 +18,20 @@ const MainWeatherCard = (prop) => {
     }
   };
 
+  const HeadingTag = headingLevel;
+  
   return (
-    <div className="col-lg-4 col-12">
-      <h4 className="d-flex flex-row align-items-center justify-content-center gap-1">
-        <span>{label}</span>
+    <div className={headingLevel === "h4" ? "col-lg-4 col-12" : ""}>
+      <HeadingTag className="d-flex flex-row align-items-center justify-content-center gap-1">
+        {label && <span>{label}</span>}
         <i className={`fa-solid ${icon}`} />
         <span>{renderValue()}</span>
         {rotate && (
           <i style={{ transform: `rotate(${rotate}deg)` }} className="fa-solid fa-arrow-up arrow" />
         )}
-      </h4>
+      </HeadingTag>
     </div>
   );
 };
 
-export default MainWeatherCard;
+export default WeatherCard;

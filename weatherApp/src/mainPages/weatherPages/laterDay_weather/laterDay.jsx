@@ -1,10 +1,9 @@
 import { useDispatch } from "react-redux";
 import { formatDate } from "../../../ultils/formatDate";
 import { formatTemp } from "../../../ultils/formatTemp";
-import { formatWindDirection } from "../../../ultils/formatDeg";
-import { formatSpeedWind } from "../../../ultils/formatSpeed";
 import { setWeatherChoice } from '../../../service/redux/slice/weatherChoiseSlice';
 import { useWeatherData } from "../../../hooks/useWeatherData";
+import WeatherCard from "../../../components/weatherCard";
 
 const LaterDay = () => {
   const { data, day, hour } = useWeatherData();
@@ -43,25 +42,49 @@ const LaterDay = () => {
           </div>
 
           <div className="right-side">
-            <h6 className="d-flex gap-1 align-items-center justify-content-center">
-              Humidity
-              <i className="fa-solid fa-droplet"></i>
-              {humidity}%
-            </h6>
+            <WeatherCard 
+              label={"Humidity"}
+              icon={"fa-droplet"}
+              units={"%"}
+              value={humidity}
+              headingLevel={"h6"}
+            />
 
-            <h6><i className="fa-solid fa-fire"></i> {tempMax}°C | {formatTemp(tempMax)}°F</h6>
+            <WeatherCard 
+              icon={"fa-fire"}
+              units={"°C"}
+              value={tempMax}
+              headingLevel={"h6"}
+            />
 
-            <h6><i className="fa-solid fa-icicles"></i> {tempMin}°C | {formatTemp(tempMin)}°F</h6>
+            <WeatherCard 
+              icon={"fa-icicles"}
+              units={"°C"}
+              value={tempMin}
+              headingLevel={"h6"}
+            />
 
-            <h6><i className="fa-solid fa-user"></i> {tempFeels}°C | {formatTemp(tempFeels)}°F</h6>
-              
-            <h6 className="d-flex flex-row justify-content-center align-items-center gap-1">
-              <i className="fa-solid fa-compass"></i>
-              {formatWindDirection(windDirection)}
-              <i style={{ transform: `rotate(${wdDirec}deg)` }} className={`fa-solid fa-arrow-up arrow`}></i>
-            </h6>
+            <WeatherCard 
+              icon={"fa-user"}
+              units={"°C"}
+              value={tempFeels}
+              headingLevel={"h6"}
+            />
 
-            <h6><i className="fa-solid fa-wind"></i> {formatSpeedWind(windSpeed, "kilo")} | {formatSpeedWind(windSpeed, "mile")}</h6>
+            <WeatherCard 
+              icon={"fa-compass"}
+              value={wdDirec}
+              units={""}
+              rotate={windDirection}
+              headingLevel={"h6"}
+            />    
+
+            <WeatherCard 
+              icon={"fa-wind"}
+              value={windSpeed}
+              units={"kp/h"}
+              headingLevel={"h6"}
+            />   
           </div>
         </div>
       </button>

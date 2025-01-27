@@ -1,4 +1,4 @@
-import MainWeatherCard from "../../../components/mainWeatherCard";
+import WeatherCard from "../../../components/weatherCard";
 import { formatTemp } from "../../../ultils/formatTemp";
 
 const MainInfoWeather = (prop) => {
@@ -21,47 +21,53 @@ const MainInfoWeather = (prop) => {
       </div>
 
       <div className="mainInfoWeather_body row p-2 d-flex justify-content-center align-items-center mx-0 mx-sm-2">
-        <MainWeatherCard 
+        <WeatherCard 
           label={"Highest"}
           icon={"fa-fire"}
           value={tempMax}
           units={"°C"}
+          headingLevel={"h4"}
         />
 
-        <MainWeatherCard 
+        <WeatherCard 
           label={"Lowest"}
           icon={"fa-icicles"}
           value={tempMin}
           units={"°C"}
+          headingLevel={"h4"}
         />  
 
-        <MainWeatherCard 
+        <WeatherCard 
           label={"Feels"}
           icon={"fa-user"}
           value={tempFeels}
           units={"°C"}
+          headingLevel={"h4"}
         />      
 
-        <MainWeatherCard 
+        <WeatherCard 
           label={"Humidity"}
           icon={"fa-droplet"}
           value={humidity}
           units={"%"}
+          headingLevel={"h4"}
         />    
 
-        <MainWeatherCard 
+        <WeatherCard 
           label={"Wind"}
           icon={"fa-compass"}
           value={wdDirec}
           units={""}
           rotate={windDirection}
+          headingLevel={"h4"}
         />     
 
-        <MainWeatherCard 
+        <WeatherCard 
           label={"Wind"}
           icon={"fa-wind"}
           value={windSpeed}
           units={"kp/h"}
+          headingLevel={"h4"}
         />           
       </div>
     </div>
