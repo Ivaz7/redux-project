@@ -1,6 +1,9 @@
 import WeatherCard from "../../../components/weatherCard";
+import { formatTemp } from "../../../ultils/formatTemp";
+import { useUnits } from "../../../hooks/useUnits";
 
 const MainInfoWeather = (prop) => {
+  const units = useUnits();
   const { description, humidity, icon, tempAvg, tempFeels, tempMax, tempMin, weather, windDirection, windSpeed } = prop.mainInfoWeather;
 
   const wdDirec = windDirection || 0;
@@ -15,7 +18,7 @@ const MainInfoWeather = (prop) => {
 
         <div className="mainInfoWeather_header_bottom">
           <h5>{description}</h5>
-          <h3>{tempAvg}</h3>
+          <h3>{formatTemp(tempAvg, units)}</h3>
         </div>
       </div>
 

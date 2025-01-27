@@ -3,8 +3,12 @@ import { formatDate } from "../../../ultils/formatDate";
 import { setWeatherChoice } from '../../../service/redux/slice/weatherChoiseSlice';
 import { useWeatherData } from "../../../hooks/useWeatherData";
 import WeatherCard from "../../../components/weatherCard";
+import { formatTemp } from "../../../ultils/formatTemp";
+import { useUnits } from "../../../hooks/useUnits";
 
 const LaterDay = () => {
+  const units = useUnits();
+
   const { data, day, hour } = useWeatherData();
 
   const dispatch = useDispatch();
@@ -37,7 +41,7 @@ const LaterDay = () => {
 
             <h5>{description}</h5>
 
-            <h6>{tempAvg}</h6>
+            <h6>{formatTemp(tempAvg, units)}</h6>
           </div>
 
           <div className="right-side">

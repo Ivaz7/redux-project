@@ -1,10 +1,10 @@
-import { useSelector } from "react-redux";
 import { formatWindDirection } from "../ultils/formatDeg";
 import { formatTemp } from "../ultils/formatTemp";
 import { formatSpeedWind } from "../ultils/formatSpeed";
+import { useUnits } from "../hooks/useUnits";
 
 const WeatherCard = (prop) => {
-  const units = useSelector((State) => State.unitsSlice.units);
+  const units = useUnits();
   const { label, icon, value, rotate, unitsStatus, headingLevel } = prop;
 
   const HeadingTag = headingLevel;

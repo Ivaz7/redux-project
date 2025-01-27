@@ -1,8 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 import { formatDate } from "../../../ultils/formatDate";
 import { setWeatherChoice } from "../../../service/redux/slice/weatherChoiseSlice";
+import { formatTemp } from "../../../ultils/formatTemp";
+import { formatSpeedWind } from "../../../ultils/formatSpeed";
+import { useUnits } from "../../../hooks/useUnits";
 
 const LaterHourInfo = (prop) => {
+  const units = useUnits();
   const hour = useSelector((state) => state.weatherChoiceSlice.hour);
   const dispatch = useDispatch();
 
@@ -32,7 +36,7 @@ const LaterHourInfo = (prop) => {
           <div className="d-flex flex-column align-items-center">
             <div className="d-flex flex-row align-items-center gap-1">
               <div><i style={{ transform: `rotate(${wdDirec}deg)` }} className={`fa-solid fa-arrow-up arrow`}></i></div>
-              <div>{windSpeed}</div>
+              <div>{formatSpeedWind(windSpeed, units)}</div>
             </div>
 
             <div className="d-flex flex-row align-items-center gap-1">
@@ -42,7 +46,7 @@ const LaterHourInfo = (prop) => {
           </div>
         </div>
 
-        <div><strong>{tempAvg}</strong></div>
+        <div><strong>{formatTemp(tempAvg, units)}</strong></div>
       </button>
     )
   })
