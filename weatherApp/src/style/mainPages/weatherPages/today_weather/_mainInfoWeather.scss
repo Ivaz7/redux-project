@@ -10,7 +10,8 @@
 
     &_bottom {
       h5 {
-        font-family: merriweather, serif;        
+        font-family: merriweather, serif;   
+        white-space: nowrap;     
       }
 
       h3 {
@@ -26,7 +27,7 @@
     background-color: c.$darkCream;
     width: 100%;
 
-    h3 {
+    h4 {
       span {
         font-family: merriweather, serif;
       }

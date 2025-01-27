@@ -1,6 +1,5 @@
 import { useDispatch } from "react-redux";
 import { formatDate } from "../../../ultils/formatDate";
-import { formatTemp } from "../../../ultils/formatTemp";
 import { setWeatherChoice } from '../../../service/redux/slice/weatherChoiseSlice';
 import { useWeatherData } from "../../../hooks/useWeatherData";
 import WeatherCard from "../../../components/weatherCard";
@@ -29,7 +28,7 @@ const LaterDay = () => {
         onClick={() => dispatch(setWeatherChoice({ dayAct : index }))}
       >
         <h2>{formatDate(timePlace)}</h2>
-        <div className="d-flex flex-row justify-content-center align-items-center gap-1">
+        <div className="d-flex flex-row justify-content-around w-100 align-items-center">
           <div className="left-side">
             <div className="d-flex flex-row align-items-center justify-content-center gap-1">
               <h3>{weather}</h3>
@@ -38,35 +37,37 @@ const LaterDay = () => {
 
             <h5>{description}</h5>
 
-            <h6>{tempAvg}°C | {formatTemp(tempAvg)}°F</h6>
+            <h6>{tempAvg}</h6>
           </div>
 
           <div className="right-side">
             <WeatherCard 
               label={"Humidity"}
               icon={"fa-droplet"}
-              units={"%"}
               value={humidity}
               headingLevel={"h6"}
             />
 
             <WeatherCard 
+              label={"Highest"}
               icon={"fa-fire"}
-              units={"°C"}
+              unitsStatus={"temp"}
               value={tempMax}
               headingLevel={"h6"}
             />
 
             <WeatherCard 
+              label={"Lowest"}
               icon={"fa-icicles"}
-              units={"°C"}
+              unitsStatus={"temp"}
               value={tempMin}
               headingLevel={"h6"}
             />
 
             <WeatherCard 
+              label={"Feels"}
               icon={"fa-user"}
-              units={"°C"}
+              unitsStatus={"temp"}
               value={tempFeels}
               headingLevel={"h6"}
             />
@@ -74,15 +75,16 @@ const LaterDay = () => {
             <WeatherCard 
               icon={"fa-compass"}
               value={wdDirec}
-              units={""}
+              unitsStatus={"deg"}
               rotate={windDirection}
               headingLevel={"h6"}
             />    
 
             <WeatherCard 
+              label={"Wind"}
               icon={"fa-wind"}
               value={windSpeed}
-              units={"kp/h"}
+              unitsStatus={"speed"}
               headingLevel={"h6"}
             />   
           </div>

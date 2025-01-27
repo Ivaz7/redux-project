@@ -1,5 +1,4 @@
 import WeatherCard from "../../../components/weatherCard";
-import { formatTemp } from "../../../ultils/formatTemp";
 
 const MainInfoWeather = (prop) => {
   const { description, humidity, icon, tempAvg, tempFeels, tempMax, tempMin, weather, windDirection, windSpeed } = prop.mainInfoWeather;
@@ -16,7 +15,7 @@ const MainInfoWeather = (prop) => {
 
         <div className="mainInfoWeather_header_bottom">
           <h5>{description}</h5>
-          <h3>{tempAvg}°C | {formatTemp(tempAvg)}°F</h3>
+          <h3>{tempAvg}</h3>
         </div>
       </div>
 
@@ -25,7 +24,7 @@ const MainInfoWeather = (prop) => {
           label={"Highest"}
           icon={"fa-fire"}
           value={tempMax}
-          units={"°C"}
+          unitsStatus={"temp"}
           headingLevel={"h4"}
         />
 
@@ -33,7 +32,7 @@ const MainInfoWeather = (prop) => {
           label={"Lowest"}
           icon={"fa-icicles"}
           value={tempMin}
-          units={"°C"}
+          unitsStatus={"temp"}
           headingLevel={"h4"}
         />  
 
@@ -41,7 +40,7 @@ const MainInfoWeather = (prop) => {
           label={"Feels"}
           icon={"fa-user"}
           value={tempFeels}
-          units={"°C"}
+          unitsStatus={"temp"}
           headingLevel={"h4"}
         />      
 
@@ -49,7 +48,6 @@ const MainInfoWeather = (prop) => {
           label={"Humidity"}
           icon={"fa-droplet"}
           value={humidity}
-          units={"%"}
           headingLevel={"h4"}
         />    
 
@@ -57,7 +55,7 @@ const MainInfoWeather = (prop) => {
           label={"Wind"}
           icon={"fa-compass"}
           value={wdDirec}
-          units={""}
+          unitsStatus={"deg"}
           rotate={windDirection}
           headingLevel={"h4"}
         />     
@@ -66,7 +64,7 @@ const MainInfoWeather = (prop) => {
           label={"Wind"}
           icon={"fa-wind"}
           value={windSpeed}
-          units={"kp/h"}
+          unitsStatus={"speed"}
           headingLevel={"h4"}
         />           
       </div>

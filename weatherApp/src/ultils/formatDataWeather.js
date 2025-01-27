@@ -7,7 +7,7 @@ export const formatDataWeather = (weather) => {
     const weatherData = {
       timePlace: data.dt_txt,
       tempFeels: data.main.feels_like,
-      humidity: data.main.humidity,
+      humidity: data.main.humidity + "%",
       tempAvg: data.main.temp,
       tempMax: data.main.temp_max,
       tempMin: data.main.temp_min,

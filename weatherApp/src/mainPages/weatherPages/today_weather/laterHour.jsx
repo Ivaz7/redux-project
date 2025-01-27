@@ -1,7 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
 import { formatDate } from "../../../ultils/formatDate";
-import { formatSpeedWind } from "../../../ultils/formatSpeed";
-import { formatTemp } from "../../../ultils/formatTemp";
 import { setWeatherChoice } from "../../../service/redux/slice/weatherChoiseSlice";
 
 const LaterHourInfo = (prop) => {
@@ -13,7 +11,7 @@ const LaterHourInfo = (prop) => {
       return;
     }
 
-    const { timePlace, tempAvg, icon, windDirection, windSpeed, description } = info;
+    const { timePlace, tempAvg, icon, windDirection, windSpeed, description, humidity } = info;
 
     const wdDirec = windDirection || 0;
 
@@ -28,20 +26,23 @@ const LaterHourInfo = (prop) => {
 
         <div><strong>{description}</strong></div>
 
-        <div className="d-flex flex-row align-items-center gap-2">
+        <div className="d-flex flex-row align-items-center justify-content-center gap-2">
           <img style={{margin: "0.4rem 0"}} src={`https://openweathermap.org/img/wn/${icon}.png`} alt="Weather Icon" />
-          <div><i style={{ transform: `rotate(${wdDirec}deg)` }} className={`fa-solid fa-arrow-up arrow`}></i></div>
 
-          <div>
-            <div>{formatSpeedWind(windSpeed, "kilo")}</div>
-            <div>{formatSpeedWind(windSpeed, "mile")}</div>
+          <div className="d-flex flex-column align-items-center">
+            <div className="d-flex flex-row align-items-center gap-1">
+              <div><i style={{ transform: `rotate(${wdDirec}deg)` }} className={`fa-solid fa-arrow-up arrow`}></i></div>
+              <div>{windSpeed}</div>
+            </div>
+
+            <div className="d-flex flex-row align-items-center gap-1">
+              <div><i className="fa-solid fa-droplet"></i></div>
+              <div>{humidity}</div>
+            </div>
           </div>
         </div>
 
-        <div className="d-flex flex-row justify-content-around align-items-center w-100">
-          <div><strong>{tempAvg}°C</strong></div>
-          <div><strong>{formatTemp(tempAvg)}°F</strong></div>
-        </div>
+        <div><strong>{tempAvg}</strong></div>
       </button>
     )
   })

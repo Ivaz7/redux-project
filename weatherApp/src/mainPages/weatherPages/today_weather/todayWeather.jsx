@@ -3,6 +3,7 @@ import { formatDate } from "../../../ultils/formatDate";
 import LaterHourInfo from "./laterHour";
 import ResetButton from "../../../components/resetButton";
 import { useWeatherData } from "../../../hooks/useWeatherData";
+import ChangeUnits from "../../../components/changeUnitsBtn";
 
 const TodayWeather = () => {
   const { data, hour, day } = useWeatherData();
@@ -27,6 +28,8 @@ const TodayWeather = () => {
 
             <h2>{formatDate(timePlace)}</h2>
           </div>
+
+          <ChangeUnits />
 
           <ResetButton />
         </div>

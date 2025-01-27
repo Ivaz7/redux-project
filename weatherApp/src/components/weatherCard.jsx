@@ -1,31 +1,34 @@
-import { formatSpeedWind } from "../ultils/formatSpeed";
-import { formatTemp } from "../ultils/formatTemp";
+import { useSelector } from "react-redux";
 import { formatWindDirection } from "../ultils/formatDeg";
+import { formatTemp } from "../ultils/formatTemp";
+import { formatSpeedWind } from "../ultils/formatSpeed";
 
 const WeatherCard = (prop) => {
-  const { label, icon, value, units, rotate, headingLevel = "h4" } = prop;
-
-  const renderValue = () => {
-    switch (units) {
-      case "°C":
-        return `${value}${units} | ${formatTemp(value)}°F`;
-      case "%":
-        return `${value}${units}`;
-      case "kp/h":
-        return `${formatSpeedWind(value, "kilo")} | ${formatSpeedWind(value, "mile")}`;
-      default:
-        return formatWindDirection(value);
-    }
-  };
+  const units = useSelector((State) => State.unitsSlice.units);
+  const { label, icon, value, rotate, unitsStatus, headingLevel } = prop;
 
   const HeadingTag = headingLevel;
+
+  const renderValue = () => {
+    switch (unitsStatus) {
+      case "temp":
+        return formatTemp(value, units);
+      case "deg":
+        return formatWindDirection(value, units);
+      case "speed":
+        return formatSpeedWind(value, units);
+      default:
+        return value;
+    }
+    
+  }
   
   return (
     <div className={headingLevel === "h4" ? "col-lg-4 col-12" : ""}>
       <HeadingTag className="d-flex flex-row align-items-center justify-content-center gap-1">
         {label && <span>{label}</span>}
         <i className={`fa-solid ${icon}`} />
-        <span>{renderValue()}</span>
+        {renderValue()}
         {rotate && (
           <i style={{ transform: `rotate(${rotate}deg)` }} className="fa-solid fa-arrow-up arrow" />
         )}
