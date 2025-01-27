@@ -1,21 +1,19 @@
-import { useSelector } from "react-redux";
-import RightNowInfo from "./rightNowInfo";
+import MainInfoWeather from "./mainInfo";
 import { formatDate } from "../../../ultils/formatDate";
 import LaterHourInfo from "./laterHour";
 import ResetButton from "../../../components/resetButton";
+import { useWeatherData } from "../../../hooks/useWeatherData";
 
 const TodayWeather = () => {
-  const data = useSelector((state) => state.weatherDataSlice.data);
-  const hour = useSelector((state) => state.weatherChoiceSlice.hour);
-  const day = useSelector((state) => state.weatherChoiceSlice.day);
+  const { data, hour, day } = useWeatherData();
 
   const { city, country, dayWeatherList } = data;
 
   const todayWeatherList = dayWeatherList[day || 0] || [];
 
-  const rightNowWeather = todayWeatherList[hour || 0] || [];
+  const mainInfoWeather = todayWeatherList[hour || 0] || [];
 
-  const { timePlace } = rightNowWeather;
+  const { timePlace } = mainInfoWeather;
 
   return (
     <>
@@ -34,7 +32,7 @@ const TodayWeather = () => {
         </div>
 
         <div className="today_body">
-          <RightNowInfo rightNowWeather={rightNowWeather} />
+          <MainInfoWeather mainInfoWeather={mainInfoWeather} />
         </div>  
 
         <div className="today_footer">

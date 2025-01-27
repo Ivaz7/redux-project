@@ -2,7 +2,7 @@
 @use './general';
 @use './header';
 @use './mainPages/weatherPages/today_weather/today';
-@use './mainPages/weatherPages/today_weather/rightNowInfo';
+@use './mainPages/weatherPages/today_weather/mainInfoWeather';
 @use './mainPages/weatherPages/today_weather/laterHourInfo';
 @use './icons';
 @use './loadingError';

@@ -1,14 +1,14 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { formatDate } from "../../../ultils/formatDate";
 import { formatTemp } from "../../../ultils/formatTemp";
 import { formatWindDirection } from "../../../ultils/formatDeg";
 import { formatSpeedWind } from "../../../ultils/formatSpeed";
 import { setWeatherChoice } from '../../../service/redux/slice/weatherChoiseSlice';
+import { useWeatherData } from "../../../hooks/useWeatherData";
 
 const LaterDay = () => {
-  const data = useSelector((state) => state.weatherDataSlice.data);
-  const hour = useSelector((state) => state.weatherChoiceSlice.hour);
-  const day = useSelector((state) => state.weatherChoiceSlice.day);
+  const { data, day, hour } = useWeatherData();
+
   const dispatch = useDispatch();
 
   const { dayWeatherList } = data;
