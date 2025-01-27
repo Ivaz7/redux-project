@@ -10,7 +10,7 @@ export const weatherApi = createApi({
   endpoints: (builder) => ({
     getWeather: builder.query({
       query: ({ lat, lon, q }) => {
-        console.log("API Token:", import.meta.env.VITE_API_TOKEN); 
+        console.log("API Token:", import.meta.env.VITE_API_OPENWEATHER); 
 
         if (lat && lon) {
           return {
