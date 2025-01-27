@@ -11,6 +11,8 @@ const TodayWeather = () => {
 
   const { city, country, dayWeatherList } = data;
 
+  console.log(data)
+
   const todayWeatherList = dayWeatherList[day || 0] || [];
 
   const rightNowWeather = todayWeatherList[hour || 0] || [];
@@ -23,8 +25,8 @@ const TodayWeather = () => {
         <div className="today_header d-flex flex-row justify-content-around align-items-center">
           <div className="d-flex flex-column align-items-center justify-content-center flex-md-row gap-1 gap-md-2">
             <div className="d-flex flex-row gap-2 align-items-center">
-              <h2>{city}</h2>
-              <img src={`https://flagcdn.com/${country}.svg`} alt="Country Flag" />
+              <h2>{city || "Unknown Place"}</h2>
+              {country && <img src={`https://flagcdn.com/${country}.svg`} alt="Country Flag" />}
             </div>
 
             <h2>{formatDate(timePlace)}</h2>

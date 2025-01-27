@@ -26,8 +26,8 @@ export const positionSlice = createSlice({
         state.city = city;
       }
     },
-    setIsPosition: (state) => {
-      state.isPosition = !state.isPosition;
+    setIsPosition: (state, action) => {
+      state.isPosition = action.payload;
     }
   }
 })

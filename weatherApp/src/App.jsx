@@ -8,12 +8,14 @@ function App() {
   return (
     <>
       <HeaderEl />
-      <Router>
-        <Routes >
-          <Route path="/" element={<ChoicePlacePages />} />
-          <Route path="/weatherPages" element={<WeatherPages />} />
-        </Routes>
-      </Router>
+      <main>  
+        <Router>
+          <Routes >
+            <Route path="/" element={<ChoicePlacePages />} />
+            <Route path="/weatherPages" element={<WeatherPages />} />
+          </Routes>
+        </Router>
+      </main>
     </>
   )
 }

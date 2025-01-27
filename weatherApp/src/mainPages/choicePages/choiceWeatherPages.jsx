@@ -10,54 +10,34 @@ import ResetButton from "../../components/resetButton";
 
 const ChoicePlacePages = () => {
   const position = useSelector((state) => state.positionSlice);
-
-  const latitude = position.latitude;
-  const longitude = position.longitude;
-  const city = position.city;
-
+  const { latitude, longitude, city } = position;
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [triggerGetWeather, { data, isLoading, isError, error, reset }] = useLazyGetWeatherQuery();
+  
   const isCityFilled = city !== "";
   const isLatLonFilled = latitude || longitude;
 
-  const [triggerGetWeather, { data, isLoading, isError, error }] = useLazyGetWeatherQuery();
-  
   const handleChange = (e) => {
     const { name, value } = e.target;
-  
-    if (name === "city") {
-      dispatch(setChagePosition({ city: value || "" }));
-    }
-  
-    if (name === "lat") {
-      dispatch(setChagePosition({ lat: value || "" }));
-    }
-  
-    if (name === "lon") {
-      dispatch(setChagePosition({ lon: value || "" }));
-    }
+    if (name === "city") dispatch(setChagePosition({ city: value || "" }));
+    if (name === "lat") dispatch(setChagePosition({ lat: value || "" }));
+    if (name === "lon") dispatch(setChagePosition({ lon: value || "" }));
   };
 
   const changePlace = (e) => {
     e.preventDefault();
-
-    if (!latitude && longitude) {
-      alert("When providing coordinat, please provide both latitude and longitude")
+    if (!latitude && longitude || !longitude && latitude) {
+      alert("Please provide both latitude and longitude.");
       return;
     }
-
-    if (!longitude && latitude) {
-      alert("When providing coordinat, please provide both latitude and longitude")
-      return;
-    }
-    
     triggerGetWeather({ q: city, lat: Number(latitude), lon: Number(longitude) });
   };
-  
+
   useEffect(() => {
     if (data) {
-      dispatch(setIsPosition());
+      dispatch(setIsPosition(true));
       const normalizedData = formatDataWeather(data);
       dispatch(setDataWeather(normalizedData));
       navigate("/weatherPages");
@@ -79,7 +59,7 @@ const ChoicePlacePages = () => {
           {error?.message || "Something went wrong!"}
         </h1>
 
-        <ResetButton />
+        <ResetButton resetQuery={reset} />
       </div>
     );
   }
