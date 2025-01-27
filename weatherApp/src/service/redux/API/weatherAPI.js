@@ -10,6 +10,8 @@ export const weatherApi = createApi({
   endpoints: (builder) => ({
     getWeather: builder.query({
       query: ({ lat, lon, q }) => {
+        console.log("API Token:", apiToken); 
+
         if (lat && lon) {
           return {
             url: 'forecast',  
