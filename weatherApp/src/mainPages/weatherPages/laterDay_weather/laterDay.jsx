@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { formatDate } from "../ultils/formatDate";
-import { formatTemp } from "../ultils/formatTemp";
-import { formatWindDirection } from "../ultils/formatDeg";
-import { formatSpeedWind } from "../ultils/formatSpeed";
-import { setWeatherChoice } from '../service/redux/slice/weatherChoiseSlice'
+import { formatDate } from "../../../ultils/formatDate";
+import { formatTemp } from "../../../ultils/formatTemp";
+import { formatWindDirection } from "../../../ultils/formatDeg";
+import { formatSpeedWind } from "../../../ultils/formatSpeed";
+import { setWeatherChoice } from '../../../service/redux/slice/weatherChoiseSlice';
 
 const LaterDay = () => {
   const data = useSelector((state) => state.weatherDataSlice.data);

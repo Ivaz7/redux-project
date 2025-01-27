@@ -1,13 +1,19 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HeaderEl from "./components/headerEl";
-import MainEl from "./components/mainEl";
-
+import ChoicePlacePages from './mainPages/choicePages/choiceWeatherPages';
+import WeatherPages from './mainPages/weatherPages/weatherPages';
 
 function App() {
 
   return (
     <>
       <HeaderEl />
-      <MainEl />
+      <Router>
+        <Routes >
+          <Route path="/" element={<ChoicePlacePages />} />
+          <Route path="/weatherPages" element={<WeatherPages />} />
+        </Routes>
+      </Router>
     </>
   )
 }

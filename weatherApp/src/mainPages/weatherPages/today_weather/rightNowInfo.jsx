@@ -1,6 +1,6 @@
-import { formatWindDirection } from "../../ultils/formatDeg";
-import { formatSpeedWind } from "../../ultils/formatSpeed";
-import { formatTemp } from "../../ultils/formatTemp";
+import { formatWindDirection } from "../../../ultils/formatDeg";
+import { formatSpeedWind } from "../../../ultils/formatSpeed";
+import { formatTemp } from "../../../ultils/formatTemp";
 
 const RightNowInfo = (prop) => {
   const { description, humidity, icon, tempAvg, tempFeels, tempMax, tempMin, weather, windDirection, windSpeed } = prop.rightNowWeather;

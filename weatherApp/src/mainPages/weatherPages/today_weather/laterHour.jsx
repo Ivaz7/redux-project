@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
-import { formatDate } from "../../ultils/formatDate";
-import { formatSpeedWind } from "../../ultils/formatSpeed";
-import { formatTemp } from "../../ultils/formatTemp";
-import { setWeatherChoice } from "../../service/redux/slice/weatherChoiseSlice";
+import { formatDate } from "../../../ultils/formatDate";
+import { formatSpeedWind } from "../../../ultils/formatSpeed";
+import { formatTemp } from "../../../ultils/formatTemp";
+import { setWeatherChoice } from "../../../service/redux/slice/weatherChoiseSlice";
 
 const LaterHourInfo = (prop) => {
   const hour = useSelector((state) => state.weatherChoiceSlice.hour);

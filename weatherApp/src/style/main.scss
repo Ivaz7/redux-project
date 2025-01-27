@@ -1,12 +1,12 @@
 @use './config' as c;
 @use './general';
 @use './header';
-@use './today_weather/today';
-@use './today_weather/rightNowInfo';
-@use './today_weather/laterHourInfo';
+@use './mainPages/weatherPages/today_weather/today';
+@use './mainPages/weatherPages/today_weather/rightNowInfo';
+@use './mainPages/weatherPages/today_weather/laterHourInfo';
 @use './icons';
 @use './loadingError';
-@use './laterDayWeather';
+@use './mainPages/weatherPages/laterDayWeather';
 @use './buttonResetLocation';
 
 * {

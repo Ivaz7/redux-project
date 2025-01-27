@@ -1,22 +1,26 @@
 import { Bars } from "react-loader-spinner";
-import { useLazyGetWeatherQuery } from "../service/redux/API/weatherAPI";
-import { setDataWeather } from "../service/redux/slice/weatherDataSlice";
-import { formatDataWeather } from "../ultils/formatDataWeather";
 import { useDispatch, useSelector } from "react-redux";
-import { setIsPosition, setChagePosition } from "../service/redux/slice/positionSlice";
 import { useEffect } from "react";
+import { useLazyGetWeatherQuery } from "../../service/redux/API/weatherAPI";
+import { setDataWeather } from "../../service/redux/slice/weatherDataSlice";
+import { formatDataWeather } from "../../ultils/formatDataWeather";
+import { setChagePosition, setIsPosition } from "../../service/redux/slice/positionSlice";
+import { useNavigate } from "react-router-dom";
+import ResetButton from "../../components/resetButton";
 
-const ChoicePlace = () => {
+const ChoicePlacePages = () => {
   const position = useSelector((state) => state.positionSlice);
 
   const latitude = position.latitude;
   const longitude = position.longitude;
   const city = position.city;
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const isCityFilled = city !== "";
   const isLatLonFilled = latitude || longitude;
 
-  const dispatch = useDispatch();
   const [triggerGetWeather, { data, isLoading, isError, error }] = useLazyGetWeatherQuery();
   
   const handleChange = (e) => {
@@ -37,6 +41,16 @@ const ChoicePlace = () => {
 
   const changePlace = (e) => {
     e.preventDefault();
+
+    if (!latitude && longitude) {
+      alert("When providing coordinat, please provide both latitude and longitude")
+      return;
+    }
+
+    if (!longitude && latitude) {
+      alert("When providing coordinat, please provide both latitude and longitude")
+      return;
+    }
     
     triggerGetWeather({ q: city, lat: Number(latitude), lon: Number(longitude) });
   };
@@ -46,8 +60,9 @@ const ChoicePlace = () => {
       dispatch(setIsPosition());
       const normalizedData = formatDataWeather(data);
       dispatch(setDataWeather(normalizedData));
+      navigate("/weatherPages");
     }
-  }, [data, dispatch]);
+  }, [data, dispatch, navigate]);
 
   if (isLoading) {
     return (
@@ -59,8 +74,12 @@ const ChoicePlace = () => {
 
   if (isError) {
     return (
-      <div className="loadingError d-flex justify-content-center align-items-center">
-        {error?.message || "Something went wrong!"}
+      <div className="loadingError d-flex justify-content-center align-items-center gap-2">
+        <h1>
+          {error?.message || "Something went wrong!"}
+        </h1>
+
+        <ResetButton />
       </div>
     );
   }
@@ -108,4 +127,4 @@ const ChoicePlace = () => {
   );
 };
 
-export default ChoicePlace;
+export default ChoicePlacePages;

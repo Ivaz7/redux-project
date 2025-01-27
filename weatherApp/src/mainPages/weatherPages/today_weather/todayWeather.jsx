@@ -1,14 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import RightNowInfo from "./rightNowInfo";
-import { formatDate } from "../../ultils/formatDate";
+import { formatDate } from "../../../ultils/formatDate";
 import LaterHourInfo from "./laterHour";
-import { setChagePosition, setIsPosition } from "../../service/redux/slice/positionSlice";
+import ResetButton from "../../../components/resetButton";
 
 const TodayWeather = () => {
   const data = useSelector((state) => state.weatherDataSlice.data);
   const hour = useSelector((state) => state.weatherChoiceSlice.hour);
   const day = useSelector((state) => state.weatherChoiceSlice.day);
-  const dispatch =  useDispatch();
 
   const { city, country, dayWeatherList } = data;
 
@@ -17,11 +16,6 @@ const TodayWeather = () => {
   const rightNowWeather = todayWeatherList[hour || 0] || [];
 
   const { timePlace } = rightNowWeather;
-
-  const handleResetButton = () => {
-    dispatch(setChagePosition({ lan: "", lon: "", city: "" }));
-    dispatch(setIsPosition());
-  }
 
   return (
     <>
@@ -36,16 +30,7 @@ const TodayWeather = () => {
             <h2>{formatDate(timePlace)}</h2>
           </div>
 
-          <button 
-            className="buttonResetLocation"
-            onClick={handleResetButton}
-          >
-            <i className="fa-solid fa-rotate">
-              <i className="fa-solid fa-location-dot"></i>
-            </i>
-
-            <p className="text-reset-button">Reset Location</p>
-          </button>
+          <ResetButton />
         </div>
 
         <div className="today_body">
