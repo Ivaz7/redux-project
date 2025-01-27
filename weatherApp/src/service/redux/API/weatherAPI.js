@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const apiToken = import.meta.env.VITE_API_TOKEN;
+const apiToken = import.meta.env.VITE_API_OPENWEATHER;
 
 export const weatherApi = createApi({
   reducerPath: 'weatherApi',
@@ -11,7 +11,7 @@ export const weatherApi = createApi({
     getWeather: builder.query({
       query: ({ lat, lon, q }) => {
         console.log("API Token:", import.meta.env.VITE_API_TOKEN); 
-        
+
         if (lat && lon) {
           return {
             url: 'forecast',  
