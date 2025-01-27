@@ -4,7 +4,7 @@ export const formatDate = (str) => {
 
   const dayName = dateDays[inputDate.getDay()];
 
-  const hours = inputDate.getHours() % 12 || 12;
+  const hours = inputDate.getHours() % 12;
   const minutes = inputDate.getMinutes();
   const period = inputDate.getHours() < 12 ? "AM" : "PM";
   const time = `${padZero(hours)}:${padZero(minutes)} ${period}`;

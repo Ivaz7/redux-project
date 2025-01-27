@@ -19,10 +19,10 @@ const WeatherPages = () => {
   return (
     <main>
       {isPosition && weatherData && Object.keys(weatherData).length > 0 ? (
-        <>
+        <div className='d-flex flex-column gap-2'>
           <TodayWeather />
           <LaterDay />
-        </>
+        </div>
       ) : (
         <div>Loading or Invalid Data</div>
       )}
