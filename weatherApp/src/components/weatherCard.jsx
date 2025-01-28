@@ -2,6 +2,7 @@ import { formatWindDirection } from "../ultils/formatDeg";
 import { formatTemp } from "../ultils/formatTemp";
 import { formatSpeedWind } from "../ultils/formatSpeed";
 import { useUnits } from "../hooks/useUnits";
+import { formatPress } from "../ultils/formatPress";
 
 const WeatherCard = (prop) => {
   const units = useUnits();
@@ -17,6 +18,8 @@ const WeatherCard = (prop) => {
         return formatWindDirection(value, units);
       case "speed":
         return formatSpeedWind(value, units);
+      case "press":
+        return formatPress(value, units);
       default:
         return value;
     }

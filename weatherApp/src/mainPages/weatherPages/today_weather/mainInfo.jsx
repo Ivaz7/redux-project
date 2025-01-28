@@ -58,6 +58,7 @@ const MainInfoWeather = (prop) => {
           label={"Sea"}
           icon={"fa-water"}
           value={sea}
+          unitsStatus={"press"}
           headingLevel={"h4"}
         />
 
@@ -65,6 +66,7 @@ const MainInfoWeather = (prop) => {
           label={"Ground"}
           icon={"fa-road-spikes"}
           value={ground}
+          unitsStatus={"press"}
           headingLevel={"h4"}
         />
         
