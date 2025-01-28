@@ -22,10 +22,12 @@ const FamousCity = (prop) => {
   })
 
   return (
-    <div className="famousCity row gap-2 d-flex justify-content-center align-items-center text-center">
+    <div className="famousCity gap-1 d-flex flex-column justify-content-center align-items-center text-center">
       <h4>Choose Famous City</h4>
 
-      {renderFamousCity}
+      <div className='row d-flex flex-row gap-2 justify-content-center align-items-center text-center p-2 w-100'>
+        {renderFamousCity}
+      </div>
     </div>
   )
 }

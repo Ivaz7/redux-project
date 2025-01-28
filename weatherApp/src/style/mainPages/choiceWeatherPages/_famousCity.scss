@@ -2,10 +2,12 @@
 
 .famousCity {
   button {
+    width: 9rem;
     border: none;
     border-radius: 1rem;
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
     border-bottom: 0.4rem solid c.$blue;
     
     h5, h6 {
