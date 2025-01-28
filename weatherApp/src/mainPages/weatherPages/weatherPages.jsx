@@ -18,16 +18,16 @@ const WeatherPages = () => {
   
 
   return (
-    <main>
+    <>
       {isPosition ? (
-        <div className='d-flex flex-column gap-2 align-items-center'>
+        <div className='d-flex flex-column gap-2 align-items-center justify-content-center p-4 py-xl-1 py-2'>
           <TodayWeather mainInfoRef={mainInfoRef} />
           <LaterDay mainInfoRef={mainInfoRef} />
         </div>
       ) : (
         <div>Loading or Invalid Data</div>
       )}
-    </main>
+    </>
   );
 };
 

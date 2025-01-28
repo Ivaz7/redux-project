@@ -40,24 +40,23 @@ const LaterDay = (prop) => {
 
     return (
       <button 
-        className="col-auto d-flex flex-column align-items-center justify-content-between p-2" 
         key={index}
         onClick={() => handleClick(index)}
       >
         <h2>{formatDate(timePlace)}</h2>
         <div className="d-flex flex-row justify-content-around w-100 align-items-center">
-          <div className="left-side">
+          <div>
             <div className="d-flex flex-row align-items-center justify-content-center gap-1">
               <h3>{weather}</h3>
               <img src={`https://openweathermap.org/img/wn/${icon}.png`} alt="Weather Icon" />
             </div>
 
-            <h5>{description}</h5>
+            <h5 className="d-flex align-items-center justify-content-center">{description}</h5>
 
             <h6>{formatTemp(tempAvg, units)}</h6>
           </div>
 
-          <div className="right-side">
+          <div>
             <WeatherCard 
               label={"Humidity"}
               icon={"fa-droplet"}
@@ -95,7 +94,7 @@ const LaterDay = (prop) => {
   })
 
   return (
-    <section className="laterDayWeather row d-flex justify-content-around p-3 gap-3">
+    <section className="laterDayWeather">
       {renderLaterDayList}
     </section>
   )
