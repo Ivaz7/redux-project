@@ -4,7 +4,7 @@ import { useUnits } from "../../../hooks/useUnits";
 
 const MainInfoWeather = (prop) => {
   const units = useUnits();
-  const { description, humidity, icon, tempAvg, tempFeels, tempMax, tempMin, weather, windDirection, windSpeed } = prop.mainInfoWeather;
+  const { description, humidity, icon, tempAvg, tempFeels, tempMax, tempMin, weather, windDirection, windSpeed, sea, ground, windGust } = prop.mainInfoWeather;
 
   const wdDirec = windDirection || 0;
   
@@ -55,6 +55,20 @@ const MainInfoWeather = (prop) => {
         />    
 
         <WeatherCard 
+          label={"Sea"}
+          icon={"fa-water"}
+          value={sea}
+          headingLevel={"h4"}
+        />
+
+        <WeatherCard 
+          label={"Ground"}
+          icon={"fa-road-spikes"}
+          value={ground}
+          headingLevel={"h4"}
+        />
+        
+        <WeatherCard 
           label={"Wind"}
           icon={"fa-compass"}
           value={wdDirec}
@@ -70,6 +84,14 @@ const MainInfoWeather = (prop) => {
           unitsStatus={"speed"}
           headingLevel={"h4"}
         />           
+
+        <WeatherCard 
+          label={"Gust"}
+          icon={"fa-wind"}
+          value={windGust}
+          unitsStatus={"speed"}
+          headingLevel={"h4"}
+        />
       </div>
     </div>
   )

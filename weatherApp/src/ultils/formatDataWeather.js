@@ -11,11 +11,14 @@ export const formatDataWeather = (weather) => {
       tempAvg: data.main.temp,
       tempMax: data.main.temp_max,
       tempMin: data.main.temp_min,
+      sea: data.main.sea_level + "hPa",
+      ground: data.main.grnd_level + "hPa",
       weather: data.weather[0].main,
       description: data.weather[0].description,
       icon: data.weather[0].icon,
       windDirection: data?.wind?.deg,
-      windSpeed: data?.wind?.speed
+      windSpeed: data?.wind?.speed,
+      windGust: data.wind.gust,
     };
 
     perDayList.push(weatherData);  
