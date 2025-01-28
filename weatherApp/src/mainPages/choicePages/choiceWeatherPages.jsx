@@ -6,7 +6,6 @@ import { setDataWeather } from "../../service/redux/slice/weatherDataSlice";
 import { formatDataWeather } from "../../ultils/formatDataWeather";
 import { setIsPosition } from "../../service/redux/slice/positionSlice";
 import { useNavigate } from "react-router-dom";
-import ResetButton from "../headerEl/resetButton";
 import FormInputUser from "./formInputUser";
 import FamousCity from "./famousCity";
 import ButtonGetMyLocation from "./getMyLocation";
@@ -17,7 +16,7 @@ const ChoicePlacePages = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [triggerGetWeather, { data, isLoading, isError, error, reset }] = useLazyGetWeatherQuery();
+  const [triggerGetWeather, { data, isLoading, isError, reset }] = useLazyGetWeatherQuery();
 
   const changePlace = (e) => {
     e.preventDefault();
@@ -47,15 +46,15 @@ const ChoicePlacePages = () => {
   }
 
   if (isError) {
-    return (
-      <div className="loadingError d-flex justify-content-center align-items-center gap-2">
-        <h1>
-          {error?.message || "Something went wrong!"}
-        </h1>
+    if (city) {
+      alert(`Error: ${city} is not a City Name!`)
+    }
 
-        <ResetButton resetQuery={reset} />
-      </div>
-    );
+    if (latitude || longitude) {
+      alert(`Error: ${latitude} ${longitude && ',' + longitude} is not the right coordinat!`)
+    }
+
+    reset();
   }
 
   return (

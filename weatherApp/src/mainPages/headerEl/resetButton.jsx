@@ -3,7 +3,7 @@ import { setChagePosition, setIsPosition } from "../../service/redux/slice/posit
 import { useNavigate } from "react-router-dom";
 import { setDataWeather } from "../../service/redux/slice/weatherDataSlice";
 
-const ResetButton = ( prop ) => {
+const ResetButton = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -12,9 +12,6 @@ const ResetButton = ( prop ) => {
     dispatch(setIsPosition(false));
     dispatch(setChagePosition({ lat: "", lon: "", city: "" }));
     dispatch(setDataWeather({}));
-    
-    if (prop.resetQuery) prop.resetQuery(); 
-
     navigate("/", { replace: true });
   };
 

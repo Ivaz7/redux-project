@@ -17,7 +17,10 @@ const FormInputUser = (prop) => {
   
   return (
     <form onSubmit={prop.changePlace} className="inputUser d-flex flex-column align-items-center justfiy-content-center gap-2 p-3">
-      <h5>Type Your Location</h5>
+      <div>
+        <h5>Type Your Location</h5>
+
+      </div>
 
       <input
         type="text"
