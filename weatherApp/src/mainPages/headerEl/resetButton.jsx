@@ -8,6 +8,7 @@ const ResetButton = ( prop ) => {
   const navigate = useNavigate();
 
   const handleReset = () => {
+    localStorage.removeItem("weatherData");
     dispatch(setIsPosition(false));
     dispatch(setChagePosition({ lat: "", lon: "", city: "" }));
     dispatch(setDataWeather({}));

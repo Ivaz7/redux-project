@@ -32,6 +32,7 @@ const ChoicePlacePages = () => {
     if (data) {
       dispatch(setIsPosition(true));
       const normalizedData = formatDataWeather(data);
+      localStorage.setItem("weatherData", JSON.stringify(normalizedData));
       dispatch(setDataWeather(normalizedData));
       navigate("/weatherPages");
     }

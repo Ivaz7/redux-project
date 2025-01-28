@@ -5,6 +5,7 @@ import { useWeatherData } from "../../../hooks/useWeatherData";
 
 const TodayWeather = (prop) => {
   const { data, hour, day } = useWeatherData();
+  console.log('Data from Redux or LocalStorage:', data);
 
   const { city, country, dayWeatherList } = data;
 

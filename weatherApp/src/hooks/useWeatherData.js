@@ -5,5 +5,9 @@ export const useWeatherData = () => {
   const hour = useSelector((State) => State.weatherChoiceSlice.hour);
   const day = useSelector((State) => State.weatherChoiceSlice.day);
 
-  return { data, hour, day }
+  const localStorageData = JSON.parse(localStorage.getItem("weatherData"));
+
+  console.log(localStorageData)
+
+  return { data: localStorageData || data, hour, day }
 }

@@ -1,26 +1,25 @@
 import TodayWeather from './today_weather/todayWeather';
 import LaterDay from './laterDay_weather/laterDay';
-import { useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { setIsPosition } from '../../service/redux/slice/positionSlice';
 
 const WeatherPages = () => {
   const isPosition = useSelector((state) => state.positionSlice.isPosition);
-  const weatherData = useSelector((state) => state.weatherDataSlice.data);
-  const navigate = useNavigate();
-
   const mainInfoRef = useRef(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!isPosition || !weatherData || Object.keys(weatherData).length === 0) {
-      navigate('/');
+    const localStorageData = JSON.parse(localStorage.getItem("weatherData"));
+    if (localStorageData) {
+      dispatch(setIsPosition(true)); 
     }
-  }, [isPosition, weatherData, navigate]);
+  }, [dispatch]);
+  
 
   return (
     <main>
-      {isPosition && weatherData && Object.keys(weatherData).length > 0 ? (
+      {isPosition ? (
         <div className='d-flex flex-column gap-2 align-items-center'>
           <TodayWeather mainInfoRef={mainInfoRef} />
           <LaterDay mainInfoRef={mainInfoRef} />
