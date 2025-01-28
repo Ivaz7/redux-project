@@ -1,13 +1,14 @@
-@use './config' as c;
+@use '../config' as c;
 
 header {
   position: fixed;
   top: 0;
   left: 0;
-  height: 10vh;
+  height: 11vh;
   width: 100%;
   z-index: 100;
   background-color: c.$white;
+  border-bottom: 0.1rem solid c.$darkBlue;
 
   i {
     background-image: linear-gradient(to top, c.$red, c.$gray, c.$blue);    

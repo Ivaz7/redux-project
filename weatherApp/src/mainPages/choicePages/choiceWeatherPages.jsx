@@ -6,7 +6,7 @@ import { setDataWeather } from "../../service/redux/slice/weatherDataSlice";
 import { formatDataWeather } from "../../ultils/formatDataWeather";
 import { setIsPosition } from "../../service/redux/slice/positionSlice";
 import { useNavigate } from "react-router-dom";
-import ResetButton from "../../components/resetButton";
+import ResetButton from "../headerEl/resetButton";
 import FormInputUser from "./formInputUser";
 import FamousCity from "./famousCity";
 import ButtonGetMyLocation from "./getMyLocation";

@@ -21,11 +21,13 @@ const ButtonGetMyLocation = (prop) => {
 
   return (
     <button 
-      className="buttonGetMyLocation d-flex flex-row align-items-center justify-content-center gap-1 p-2"
+      className="buttonGetMyLocation"
       onClick={handleCLick}  
     >
-      Get My Location
-      <i className="fa-solid fa-map-location-dot"></i>
+      <h3>
+        Get My Location
+        <i className="fa-solid fa-map-location-dot"></i>
+      </h3>
     </button>
   )
 }

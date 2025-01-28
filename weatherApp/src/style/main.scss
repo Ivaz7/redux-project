@@ -1,18 +1,19 @@
 @use './config' as c;
 @use './general';
-@use './header';
+@use './headerEl/header';
 @use './mainPages/weatherPages/today_weather/today';
 @use './mainPages/weatherPages/today_weather/mainInfoWeather';
 @use './mainPages/weatherPages/today_weather/laterHourInfo';
 @use './icons';
 @use './loadingError';
 @use './mainPages/weatherPages/laterDayWeather';
-@use './buttonResetLocation';
+@use './headerEl/buttonResetLocation';
 @use './mainPages/choiceWeatherPages/choiceLocation';
 @use './mainPages/choiceWeatherPages/buttonGetMyLocation';
 @use './mainPages/choiceWeatherPages/formInputUser';
 @use './flagCountry';
 @use './mainPages/choiceWeatherPages/famousCity';
+@use './headerEl/changeUnitsBtn';
 
 * {
   margin: 0;

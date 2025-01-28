@@ -17,7 +17,7 @@
       background-color: #808080c5;
     }
   
-    &:hover {
+    &:hover, &:active {
       box-shadow: 0 0 0.7rem c.$blue;
     }
   }

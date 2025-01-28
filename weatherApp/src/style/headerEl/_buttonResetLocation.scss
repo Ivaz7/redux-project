@@ -1,0 +1,25 @@
+@use '../config' as c;
+
+.buttonResetLocation {
+  position: relative;
+  border: none;
+  background-color: c.$blue;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  
+  i, h5 {
+    color: c.$white;
+    margin: 0;
+    padding: 0;
+  }
+
+  i {
+    display: flex;
+    align-self: center;
+    font-size: inherit;
+  }
+
+  &:hover, &:active {
+    box-shadow: 0 0 0.7rem c.$blue;
+  }
+}
