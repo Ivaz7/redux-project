@@ -16,14 +16,16 @@ const LaterDay = (prop) => {
   const { dayWeatherList } = data;
 
   const handleClick = (index) => {
-    dispatch(setWeatherChoice({ dayAct : index }));
-
     if (prop.mainInfoRef.current) {
       window.scrollTo({
         top: prop.mainInfoRef.current.offsetTop,
         behavior: 'smooth',
       });    
     }
+    
+    setTimeout(() => {
+      dispatch(setWeatherChoice({ dayAct : index }));
+    }, 150);
   }
 
   const renderLaterDayList = dayWeatherList.map((info, index) => {
@@ -38,7 +40,7 @@ const LaterDay = (prop) => {
 
     return (
       <button 
-        className="col-auto d-flex flex-column align-items-center justify-content-between" 
+        className="col-auto d-flex flex-column align-items-center justify-content-between p-2" 
         key={index}
         onClick={() => handleClick(index)}
       >
@@ -93,7 +95,7 @@ const LaterDay = (prop) => {
   })
 
   return (
-    <section className="laterDayWeather row d-flex justify-content-around p-3 mx-3 gap-3">
+    <section className="laterDayWeather row d-flex justify-content-around p-3 gap-3">
       {renderLaterDayList}
     </section>
   )

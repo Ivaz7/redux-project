@@ -11,14 +11,16 @@ const LaterHourInfo = (prop) => {
   const dispatch = useDispatch();
 
   const handleClick = (index) => {
-    dispatch(setWeatherChoice({ hourAct: index }))
-
     if (prop.mainInfoRef.current) {
       window.scrollTo({
         top: prop.mainInfoRef.current.offsetTop,
         behavior: 'smooth',
       });    
     }
+    
+    setTimeout(() => {
+      dispatch(setWeatherChoice({ hourAct: index }))
+    }, 150)
   }
 
   const renderTodayWeatherList = prop.todayWeatherList.map((info, index) => {

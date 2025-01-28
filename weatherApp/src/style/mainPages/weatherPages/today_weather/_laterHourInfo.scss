@@ -12,10 +12,10 @@
   height: fit-content;
   border-radius: 1rem;
   background-color: c.$cream;
+  border-bottom: 0.4rem solid c.$darkBlue;
   padding: 0.5rem;
   
   &:hover, &:active {
-    background-color: c.$white;
-    box-shadow: 0 0 0.4rem c.$white;
+    box-shadow: 0 0 0.5rem c.$blue;
   }
 }

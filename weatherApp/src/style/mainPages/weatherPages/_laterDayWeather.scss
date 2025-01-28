@@ -1,8 +1,9 @@
 @use '../../config' as c;
 
 .laterDayWeather {
-  background-color: c.$cream;
+  background-color: c.$darkCream;
   border-radius: 1rem;
+  width: fit-content;
 
   h5 {
     white-space: nowrap;
@@ -23,9 +24,8 @@
     width: 20.6rem;
     border: none;
     border-radius: 1rem;
-    border-left: 0.1rem solid c.$darkCream;
-    border-right: 0.1rem solid c.$darkCream;
     background-color: c.$cream;
+    border-bottom: 0.4rem solid c.$darkBlue;
 
     h2 {
       margin: 0;
@@ -42,7 +42,7 @@
     }
 
     &:hover, &:active {
-      background-color: c.$darkCream;
+      box-shadow: 0 0 0.7rem c.$blue;
     }
   }
 }

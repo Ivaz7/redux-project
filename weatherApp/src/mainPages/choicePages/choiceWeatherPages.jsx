@@ -58,7 +58,7 @@ const ChoicePlacePages = () => {
   }
 
   return (
-    <section className="choiceLocation p-2 d-flex flex-column gap-4 justify-content-center align-items-center text-center">
+    <section className="choiceLocation p-2 d-flex flex-column gap-3 justify-content-center align-items-center text-center">
       <h2>Find Out the Weather in Your Desired Location</h2>
 
       <ButtonGetMyLocation 

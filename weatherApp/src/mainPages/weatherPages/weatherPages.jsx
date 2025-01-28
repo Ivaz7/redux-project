@@ -21,7 +21,7 @@ const WeatherPages = () => {
   return (
     <main>
       {isPosition && weatherData && Object.keys(weatherData).length > 0 ? (
-        <div className='d-flex flex-column gap-2'>
+        <div className='d-flex flex-column gap-2 align-items-center'>
           <TodayWeather mainInfoRef={mainInfoRef} />
           <LaterDay mainInfoRef={mainInfoRef} />
         </div>
