@@ -16,3 +16,9 @@ img {
   background-color: c.$blue;
   border-radius: 1rem;
 }
+
+@media (max-width: 576px) {
+  main {
+    margin-top: 16vh;
+  }
+}

@@ -9,7 +9,7 @@ const HeaderEl = () => {
         <h1>WeatherApp</h1>
       </div>
 
-      <div className="d-flex flex-row justify-content-center align-items-center gap-2">
+      <div className="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-2">
         <ChangeUnits />
         <ResetButton />
       </div>
