@@ -14,13 +14,15 @@ const FormInputUser = (prop) => {
     if (name === "lat") dispatch(setChagePosition({ lat: value || "" }));
     if (name === "lon") dispatch(setChagePosition({ lon: value || "" }));
   };
+
+  const handleClear = (e) => {
+    e.preventDefault();
+    dispatch(setChagePosition({ lat: "", lon: "", city: "" }))
+  }
   
   return (
     <form onSubmit={prop.changePlace} className="inputUser d-flex flex-column align-items-center justfiy-content-center gap-2 p-3">
-      <div>
-        <h5>Type Your Location</h5>
-
-      </div>
+      <h5>Type Your Location</h5>
 
       <input
         type="text"
@@ -52,7 +54,14 @@ const FormInputUser = (prop) => {
         />
       </div>
 
-      <button type="submit">Submit</button>
+      <div className="d-flex gap-2">
+        <button type="submit">Submit</button>
+
+        <button 
+          onClick={handleClear}
+        >clear</button>
+      </div>
+
     </form>
   )
 }

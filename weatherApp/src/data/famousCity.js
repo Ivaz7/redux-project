@@ -15,6 +15,6 @@ export const famousCity = [
   { name: "Seoul", country: "South Korea", countryCode: "KR" },
   { name: "Toronto", country: "Canada", countryCode: "CA" },
   { name: "Bangkok", country: "Thailand", countryCode: "TH" },
-  { name: "Lagos", country: "Nigeria", countryCode: "NG" },
+  { name: "Bali", country: "Indonesia", countryCode: "ID" },
   { name: "Mexico City", country: "Mexico", countryCode: "MX" }
 ];
