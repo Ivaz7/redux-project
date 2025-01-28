@@ -14,7 +14,7 @@
   background-color: c.$cream;
   padding: 0.5rem;
   
-  &:hover {
+  &:hover, &:active {
     background-color: c.$white;
     box-shadow: 0 0 0.4rem c.$white;
   }

@@ -4,6 +4,10 @@
   background-color: c.$cream;
   border-radius: 1rem;
 
+  h5 {
+    white-space: nowrap;
+  }
+
   h3, h5 {
     margin: 0;
     padding: 0;
@@ -37,7 +41,7 @@
       width: 53%;
     }
 
-    &:hover {
+    &:hover, &:active {
       background-color: c.$darkCream;
     }
   }

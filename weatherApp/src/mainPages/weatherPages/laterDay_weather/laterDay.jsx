@@ -6,7 +6,7 @@ import WeatherCard from "../../../components/weatherCard";
 import { formatTemp } from "../../../ultils/formatTemp";
 import { useUnits } from "../../../hooks/useUnits";
 
-const LaterDay = () => {
+const LaterDay = (prop) => {
   const units = useUnits();
 
   const { data, day, hour } = useWeatherData();
@@ -15,6 +15,17 @@ const LaterDay = () => {
 
   const { dayWeatherList } = data;
 
+  const handleClick = (index) => {
+    dispatch(setWeatherChoice({ dayAct : index }));
+
+    if (prop.mainInfoRef.current) {
+      window.scrollTo({
+        top: prop.mainInfoRef.current.offsetTop,
+        behavior: 'smooth',
+      });    
+    }
+  }
+
   const renderLaterDayList = dayWeatherList.map((info, index) => {
     if (index === day) {
       return;
@@ -22,14 +33,14 @@ const LaterDay = () => {
 
     const weatherInfoList = info[hour];
 
-    const { timePlace, tempAvg, tempMax, tempMin, tempFeels, icon, windDirection, windSpeed, description, humidity, weather } = weatherInfoList;
+    const { timePlace, tempAvg, tempFeels, icon, windDirection, windSpeed, description, humidity, weather } = weatherInfoList;
     const wdDirec = windDirection || 0;
 
     return (
       <button 
-        className="col-auto d-flex flex-column align-items-center" 
+        className="col-auto d-flex flex-column align-items-center justify-content-between" 
         key={index}
-        onClick={() => dispatch(setWeatherChoice({ dayAct : index }))}
+        onClick={() => handleClick(index)}
       >
         <h2>{formatDate(timePlace)}</h2>
         <div className="d-flex flex-row justify-content-around w-100 align-items-center">
@@ -49,22 +60,6 @@ const LaterDay = () => {
               label={"Humidity"}
               icon={"fa-droplet"}
               value={humidity}
-              headingLevel={"h6"}
-            />
-
-            <WeatherCard 
-              label={"Highest"}
-              icon={"fa-fire"}
-              unitsStatus={"temp"}
-              value={tempMax}
-              headingLevel={"h6"}
-            />
-
-            <WeatherCard 
-              label={"Lowest"}
-              icon={"fa-icicles"}
-              unitsStatus={"temp"}
-              value={tempMin}
               headingLevel={"h6"}
             />
 

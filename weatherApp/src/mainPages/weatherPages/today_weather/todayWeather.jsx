@@ -3,7 +3,7 @@ import { formatDate } from "../../../ultils/formatDate";
 import LaterHourInfo from "./laterHour";
 import { useWeatherData } from "../../../hooks/useWeatherData";
 
-const TodayWeather = () => {
+const TodayWeather = (prop) => {
   const { data, hour, day } = useWeatherData();
 
   const { city, country, dayWeatherList } = data;
@@ -16,7 +16,7 @@ const TodayWeather = () => {
 
   return (
     <>
-      <section className="today d-flex flex-column p-3 gap-3">
+      <section ref={prop.mainInfoRef} className="today d-flex flex-column p-3 gap-3">
         <div className="today_header d-flex flex-column flex-sm-row justify-content-center align-items-center gap-2">
           <div className="d-flex flex-row gap-2 align-items-center">
             <h2>{city || "Unknown Place"}</h2>
@@ -31,7 +31,7 @@ const TodayWeather = () => {
         </div>  
 
         <div className="today_footer">
-          <LaterHourInfo todayWeatherList={todayWeatherList} />
+          <LaterHourInfo mainInfoRef={prop.mainInfoRef} todayWeatherList={todayWeatherList} />
         </div>
       </section>
     </>

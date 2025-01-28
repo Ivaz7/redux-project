@@ -10,6 +10,17 @@ const LaterHourInfo = (prop) => {
   const hour = useSelector((state) => state.weatherChoiceSlice.hour);
   const dispatch = useDispatch();
 
+  const handleClick = (index) => {
+    dispatch(setWeatherChoice({ hourAct: index }))
+
+    if (prop.mainInfoRef.current) {
+      window.scrollTo({
+        top: prop.mainInfoRef.current.offsetTop,
+        behavior: 'smooth',
+      });    
+    }
+  }
+
   const renderTodayWeatherList = prop.todayWeatherList.map((info, index) => {
     if (index === hour) {
       return;
@@ -24,7 +35,7 @@ const LaterHourInfo = (prop) => {
         className="buttonLaterInfo col-auto text-center" 
         key={index} 
         id={index}
-        onClick={() => dispatch(setWeatherChoice({ hourAct: index }))}
+        onClick={() => handleClick(index)}
       >
         <div>{formatDate(timePlace)}</div>
 
