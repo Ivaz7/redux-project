@@ -1,0 +1,29 @@
+@use './config' as c;
+
+.carousel-item.active {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.carousel-item-start {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.carousel-indicators {
+  top: 100%;
+  gap: 2px;
+  
+  & [data-bs-target] {
+    background-color: c.$blue;
+    margin: 0;
+    border-radius: 10%;
+  }
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+  background-color: c.$blue;
+  border-radius: 0.3rem;
+}
