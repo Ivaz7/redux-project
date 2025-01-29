@@ -1,0 +1,15 @@
+@use './config' as c;
+
+.swiperBtn {
+  background-color: c.$cream;
+  border-radius: 0.64rem;
+  border-bottom: 0.256rem solid c.$blue;
+
+  i {
+    color: c.$black;
+  }
+
+  &:hover, &:active {
+    box-shadow: 0 0 0.5rem c.$blue;
+  }
+}
