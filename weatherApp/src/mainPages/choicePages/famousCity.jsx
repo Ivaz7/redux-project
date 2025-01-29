@@ -46,7 +46,7 @@ const FamousCity = (prop) => {
       {isSmallScreen 
         ? 
         <div style={{ width: "100vw"}} className='px-4 d-flex justify-content-center gap-2'>
-          <CustomSwiper countSlide={4} space={95} slides={renderFamousCity}/>
+          <CustomSwiper countSlide={3} space={60} slides={renderFamousCity}/>
         </div>
         :
         <div className='row d-flex flex-row gap-md-2 gap-1 justify-content-center align-items-center text-center p-2 w-100'>
