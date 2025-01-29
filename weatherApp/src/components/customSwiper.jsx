@@ -6,7 +6,7 @@ const CustomSwiper = (prop) => {
   const swiperRef = useRef(null);
 
   return (
-    <div style={{ width: "100vw" }} className="px-4 d-flex justify-content-center gap-2">
+    <>
       <button 
         className="swiperBtn swiper-button-prev" 
         onClick={() => swiperRef.current.swiper.slidePrev()}
@@ -17,9 +17,9 @@ const CustomSwiper = (prop) => {
       <Swiper
         ref={swiperRef}
         loop={true}
-        spaceBetween={95}
-        slidesPerView={4}
-        freeMode={true}
+        spaceBetween={prop.space}
+        slidesPerView={prop.countSlide}
+        speed={200}        
       >
         {prop.slides}
       </Swiper>
@@ -30,7 +30,7 @@ const CustomSwiper = (prop) => {
       >
         <i className="fa-solid fa-chevron-right"></i>
       </button>
-    </div>
+    </>
   );
 };
 

@@ -5,8 +5,13 @@ import { useWeatherData } from "../../../hooks/useWeatherData";
 import WeatherCard from "../../../components/weatherCard";
 import { formatTemp } from "../../../ultils/formatTemp";
 import { useUnits } from "../../../hooks/useUnits";
+import { useWindowSize } from "../../../hooks/useWindowSize";
+import { SwiperSlide } from "swiper/react";
+import CustomSwiper from "../../../components/customSwiper";
 
 const LaterDay = (prop) => {
+  const isSmallScreen = useWindowSize();
+
   const units = useUnits();
 
   const { data, day, hour } = useWeatherData();
@@ -38,7 +43,7 @@ const LaterDay = (prop) => {
     const { timePlace, tempAvg, tempFeels, icon, windDirection, windSpeed, description, humidity, weather } = weatherInfoList;
     const wdDirec = windDirection || 0;
 
-    return (
+    const button = (
       <button 
         key={index}
         onClick={() => handleClick(index)}
@@ -91,9 +96,21 @@ const LaterDay = (prop) => {
         </div>
       </button>
     )
+
+    return isSmallScreen ? (
+      <SwiperSlide key={index}>
+        {button}
+      </SwiperSlide>
+    ) : (
+      button
+    )
   })
 
-  return (
+  return isSmallScreen ? (
+    <div style={{width: "85vw"}} className="laterDayWeather d-flex">
+      <CustomSwiper space={2000} countSlide={1} slides={renderLaterDayList}/>
+    </div>
+  ) : (
     <section className="laterDayWeather">
       {renderLaterDayList}
     </section>

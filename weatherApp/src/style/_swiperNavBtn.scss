@@ -1,6 +1,7 @@
 @use './config' as c;
 
 .swiperBtn {
+  border: none;
   background-color: c.$cream;
   border-radius: 0.64rem;
   border-bottom: 0.256rem solid c.$blue;
