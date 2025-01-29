@@ -34,38 +34,38 @@ const LaterHourInfo = (prop) => {
 
     return (
       <button 
-        className="buttonLaterInfo col-auto text-center" 
+        className="buttonLaterInfo col-auto text-center d-flex flex-column align-items-center justify-content-center gap-0" 
         key={index} 
         id={index}
         onClick={() => handleClick(index)}
       >
-        <div>{formatDate(timePlace)}</div>
+        <p>{formatDate(timePlace)}</p>
 
-        <div><strong>{description}</strong></div>
+        <p><strong>{description}</strong></p>
 
         <div className="d-flex flex-row align-items-center justify-content-center gap-2">
           <img style={{margin: "0.4rem 0"}} src={`https://openweathermap.org/img/wn/${icon}.png`} alt="Weather Icon" />
 
           <div className="d-flex flex-column align-items-center">
             <div className="d-flex flex-row align-items-center gap-1">
-              <div><i style={{ transform: `rotate(${wdDirec}deg)` }} className={`fa-solid fa-arrow-up arrow`}></i></div>
-              <div>{formatSpeedWind(windSpeed, units)}</div>
+              <p><i style={{ transform: `rotate(${wdDirec}deg)` }} className={`fa-solid fa-arrow-up arrow`}></i></p>
+              <p>{formatSpeedWind(windSpeed, units)}</p>
             </div>
 
             <div className="d-flex flex-row align-items-center gap-1">
-              <div><i className="fa-solid fa-droplet"></i></div>
-              <div>{humidity}</div>
+              <p><i className="fa-solid fa-droplet"></i></p>
+              <p>{humidity}</p>
             </div>
           </div>
         </div>
 
-        <div><strong>{formatTemp(tempAvg, units)}</strong></div>
+        <p><strong>{formatTemp(tempAvg, units)}</strong></p>
       </button>
     )
   })
 
   return(
-    <div className="laterHourInfo row mx-2 p-3 d-flex justify-content-around align-items-center gap-3">
+    <div className="laterHourInfo row mx-2 p-2 p-md-3 d-flex justify-content-around align-items-center gap-2 gap-md-3">
       {renderTodayWeatherList}
     </div>
   )

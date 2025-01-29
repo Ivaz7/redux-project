@@ -1,7 +1,25 @@
 @use '../../config' as c;
 
 .choiceLocation {
-  h2 {
+  h4 {
+    font-size: 1.5rem;
     font-family: merriweather, serif;
+    margin: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .choiceLocation {
+    h4 {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .choiceLocation {
+    h4 {
+      font-size: 0.96rem;
+    }
   }
 }

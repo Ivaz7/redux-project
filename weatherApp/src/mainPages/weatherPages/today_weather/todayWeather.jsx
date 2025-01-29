@@ -5,7 +5,6 @@ import { useWeatherData } from "../../../hooks/useWeatherData";
 
 const TodayWeather = (prop) => {
   const { data, hour, day } = useWeatherData();
-  console.log('Data from Redux or LocalStorage:', data);
 
   const { city, country, dayWeatherList } = data;
 
@@ -17,7 +16,7 @@ const TodayWeather = (prop) => {
 
   return (
     <>
-      <section ref={prop.mainInfoRef} className="today d-flex flex-column p-3 gap-3">
+      <section ref={prop.mainInfoRef} className="today d-flex flex-column p-2 p-md-3 gap-1 gap-md-3">
         <div className="today_header d-flex flex-column flex-sm-row justify-content-center align-items-center gap-2">
           <div className="d-flex flex-row gap-2 align-items-center">
             <h2>{city || "Unknown Place"}</h2>

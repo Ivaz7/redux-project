@@ -18,13 +18,36 @@ header {
   }
 
   h1 {
+    font-size: 1.73rem;
     font-family: merriweather, serif;
     margin: 0;
   }
 }
 
-@media (max-width:576px) {
+@media (max-width:770px) {
   header {
-    height: 15vh; 
+    height: 9vh;
+
+    i {
+      font-size: 1.6rem;
+    }
+
+    h1 {
+      font-size: 1.384rem;
+    }
+  }
+}
+
+@media (max-width:550px) {
+  header {
+    height: 7vh;
+
+    i {
+      font-size: 1.28rem;
+    }
+
+    h1 {
+      font-size: 1.1072rem;
+    }
   }
 }

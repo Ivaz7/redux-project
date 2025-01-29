@@ -10,16 +10,58 @@
   i, h5 {
     color: c.$white;
     margin: 0;
-    padding: 0;
   }
   
   i {
     display: flex;
     align-self: center;
     font-size: inherit;
+    font-size: 1.25rem;
+  }
+
+  h5 {
+    font-size: 1.25rem;
   }
 
   &:hover, &:active {
     box-shadow: 0 0 0.7rem c.$blue;
+  }
+}
+
+@media (max-width:700px) {
+  .changeUnitsBtn {
+    padding: 0.4rem;
+    border-radius: 0.4rem;
+
+    i {
+      font-size: 1rem;
+    }
+
+    h5 {
+      font-size: 1rem;
+    }
+
+    &:hover, &:active {
+      box-shadow: 0 0 0.56rem c.$blue;
+    }
+  }
+}
+
+@media (max-width:550px) {
+  .changeUnitsBtn {
+    padding: 0.32rem;
+    border-radius: 0.32rem;
+
+    i {
+      font-size: 0.8rem;
+    }
+
+    h5 {
+      font-size: 0.8rem;
+    }
+
+    &:hover, &:active {
+      box-shadow: 0 0 0.448rem c.$blue;
+    }
   }
 }

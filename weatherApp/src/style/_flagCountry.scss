@@ -4,3 +4,17 @@
   width: 2rem;
   object-fit: cover;
 }
+
+@media (max-width:700px) {
+  .flagCountry {
+    height: 1.6rem;
+    width: 1.6rem;
+  }
+}
+
+@media (max-width:550px) {
+  .flagCountry {
+    height: 1.28rem;
+    width: 1.28rem;
+  }
+}

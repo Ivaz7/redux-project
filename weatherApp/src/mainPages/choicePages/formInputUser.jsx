@@ -21,7 +21,7 @@ const FormInputUser = (prop) => {
   }
   
   return (
-    <form onSubmit={prop.changePlace} className="inputUser d-flex flex-column align-items-center justfiy-content-center gap-2 p-3">
+    <form onSubmit={prop.changePlace} className="inputUser d-flex flex-column align-items-center justfiy-content-center gap-1 gap-md-2 p-2 p-md-3">
       <h5>Type Your Location</h5>
 
       <input
@@ -35,7 +35,7 @@ const FormInputUser = (prop) => {
 
       <h6>Or</h6>
 
-      <div className="d-flex flex-column flex-sm-row gap-2 justify-content-center align-items-center">
+      <div className="d-flex flex-column gap-2 justify-content-center align-items-center">
         <input
           type="text"
           placeholder={isCityFilled ? "City is selected" : "Provide Latitude"}
@@ -54,7 +54,7 @@ const FormInputUser = (prop) => {
         />
       </div>
 
-      <div className="d-flex gap-2">
+      <div className="d-flex gap-1 gap-md-2">
         <button type="submit">Submit</button>
 
         <button 

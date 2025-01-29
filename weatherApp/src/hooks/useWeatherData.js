@@ -7,7 +7,5 @@ export const useWeatherData = () => {
 
   const localStorageData = JSON.parse(localStorage.getItem("weatherData"));
 
-  console.log(localStorageData)
-
   return { data: localStorageData || data, hour, day }
 }

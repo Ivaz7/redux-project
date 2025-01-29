@@ -3,6 +3,11 @@
 .laterHourInfo {
   border-radius: 1rem;
   background-color: c.$darkCream;
+
+  p {
+    font-size: 1rem;
+    margin: 0;
+  }
 }
 
 .buttonLaterInfo {
@@ -17,5 +22,42 @@
   
   &:hover, &:active {
     box-shadow: 0 0 0.5rem c.$blue;
+  }
+}
+
+@media (max-width: 700px) {
+  .laterHourInfo {
+    p {
+      font-size: 0.8rem;
+    }
+  }
+
+  .buttonLaterInfo {
+    width: 8.8rem;
+    border-radius: 0.8rem;
+    border-bottom: 0.32rem solid c.$darkBlue;
+    padding: 0.4rem;
+
+    &:hover, &:active {
+      box-shadow: 0 0 0.4rem c.$blue;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .laterHourInfo {
+    p {
+      font-size: 0.6rem;
+    }
+  }
+
+  .buttonLaterInfo {
+    width: 7.4rem;
+    border-bottom: 0.3rem solid c.$darkBlue;
+    padding: 0.3rem;
+
+    &:hover, &:active {
+      box-shadow: 0 0 0.3rem c.$blue;
+    }
   }
 }

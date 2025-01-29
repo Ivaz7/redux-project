@@ -27,7 +27,7 @@ const WeatherCard = (prop) => {
   }
   
   return (
-    <div className={headingLevel === "h4" ? "col-lg-4 col-12" : ""}>
+    <div className={headingLevel === "h4" ? "col-lg-3 col-12" : ""}>
       <HeadingTag className="d-flex flex-row align-items-center justify-content-center gap-1">
         {label && <span>{label}</span>}
         <i className={`fa-solid ${icon}`} />

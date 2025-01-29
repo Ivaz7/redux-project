@@ -24,10 +24,10 @@ const ButtonGetMyLocation = (prop) => {
       className="buttonGetMyLocation"
       onClick={handleCLick}  
     >
-      <h3 className="d-flex flex-row justify-content-center align-items-center gap-1">
+      <h5 className="d-flex flex-row justify-content-center align-items-center gap-1">
         Get My Location
         <i className="fa-solid fa-map-location-dot"></i>
-      </h3>
+      </h5>
     </button>
   )
 }

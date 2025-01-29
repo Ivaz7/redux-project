@@ -4,8 +4,25 @@
   background-color: c.$cream;
   border-radius: 2rem;
   
-  h2, p {
+  h2 {
     margin: 0;
     padding: 0;
+    font-size: 1.54rem;
+  }
+}
+
+@media (max-width:700px) {
+  .today {
+    h2 {
+      font-size: 1.432rem;
+    }
+  }
+}
+
+@media (max-width:550px) {
+  .today {
+    h2 {
+      font-size: 1.1564rem;
+    }
   }
 }

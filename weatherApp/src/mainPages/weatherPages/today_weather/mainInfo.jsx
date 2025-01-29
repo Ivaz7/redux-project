@@ -10,7 +10,7 @@ const MainInfoWeather = (prop) => {
   
   return (
     <div className="mainInfoWeather d-flex flex-sm-row flex-column gap-1">
-      <div className="mainInfoWeather_header d-flex flex-column align-items-center text-center gap-2">
+      <div className="mainInfoWeather_header d-flex flex-column align-items-center text-center gap-1 gap-md-2">
         <div className="mainInfoWeather_header_top d-flex flex-row gap-1 align-items-center justify-content-center">
           <h2>{weather}</h2>
           <img src={`https://openweathermap.org/img/wn/${icon}.png`} alt="Weather Icon" />
@@ -22,7 +22,7 @@ const MainInfoWeather = (prop) => {
         </div>
       </div>
 
-      <div className="mainInfoWeather_body row p-2 d-flex justify-content-center align-items-center mx-0 mx-sm-2">
+      <div className="mainInfoWeather_body row p-1 p-md-2 d-flex justify-content-center align-items-center gap-1 mx-0 mx-sm-2">
         <WeatherCard 
           label={"Highest"}
           icon={"fa-fire"}

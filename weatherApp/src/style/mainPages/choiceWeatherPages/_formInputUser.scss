@@ -5,6 +5,7 @@
   border-radius: 1rem;
 
   input {
+    font-size: 1rem;
     text-align: center;
     padding: 0.3rem;
     border: none;
@@ -18,11 +19,13 @@
   }
 
   h5 {
+    font-size: 1.25rem;
     margin: 0;
     padding: 0;
   }
 
   h6 {
+    font-size: 1rem;
     font-family: robot, sans-serif;
   }
 
@@ -34,10 +37,61 @@
     padding: 0.35rem;
     border-radius: 0.5rem;
     font-weight: bold;
+    font-size: 1rem;
     margin-top: 0.5rem;
 
     &:hover, &:active {
       box-shadow: 0 0 0.7rem c.$blue;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .inputUser {
+    input {
+      font-size: 0.8rem;
+      padding: 0.24rem;
+      border-radius: 0.24rem;
+    }
+
+    h5 {
+      font-size: 1rem;
+    }
+
+    h6 {
+      font-size: 0.8rem;
+    }
+
+    button {
+      font-size: 0.8rem;
+      padding: 0.28rem;
+      border-radius: 0.4rem;
+      margin-top: 0.4rem;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .inputUser {
+    input {
+      font-size: 0.64rem;
+      padding: 0.192rem;
+      border-radius: 0.192rem;
+    }
+
+    h5 {
+      font-size: 0.8rem;
+    }
+
+    h6 {
+      font-size: 0.64rem;
+    }
+
+    button {
+      font-size: 0.64rem;
+      padding: 0.224rem;
+      border-radius: 0.32rem;
+      margin-top: 0.32rem;
     }
   }
 }
